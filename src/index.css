@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+
+* {
+  font-family: 'Hachi Maru Pop', sans-serif;
+}
+
+.special-font {
+  font-family: 'Bitcount Single', sans-serif;
+}
