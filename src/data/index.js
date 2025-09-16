@@ -6,7 +6,7 @@ export const letters = [
   { char: 'o', img: 'images/person-img-5.jpg', rotate: '-rotate-15' },
 ]
 
-export const professionTexts = ['a Front End', 'a Back End', 'a Full Stack']
+export const professionTexts = ['Front End', 'Back End', 'Full Stack','Cloud','Software']
 
 export const socialIcons = [
   { icon: 'bx bxl-instagram-alt' },
@@ -15,36 +15,17 @@ export const socialIcons = [
   { icon: 'bx bxl-facebook-square' },
 ]
 
-export const aboutText = `Nick Brown is a dedicated full-stack web developer with a deep passion for building
-modern, high-performance web applications. With a strong foundation in both front-end
-and back-end development, he specializes in creating seamless digital experiences that
-combine functionality, efficiency, and aesthetics. His expertise spans across
-technologies such as HTML, CSS, JavaScript, React, and Node.js, allowing him to
-develop fully responsive, interactive, and scalable applications tailored to meet
-diverse client needs. From conceptualizing innovative ideas to implementing robust
-solutions, Nick takes a meticulous approach to every project he undertakes. He has a
-keen eye for UI/UX design, ensuring that every website or application he builds is not
-only visually appealing but also intuitive and user-friendly. His commitment to
-performance optimization allows him to deliver fast-loading websites with smooth
-navigation, ensuring a flawless experience across all devices and screen sizes. Nick's
-back-end skills complement his front-end expertise, enabling him to create secure and
-efficient server-side architectures using databases like MongoDB and MySQL. He is
-well-versed in API development, authentication, and data handling, which ensures that
-his applications operate seamlessly and securely. His ability to bridge the gap
-between design and functionality makes him a well-rounded developer capable of
-handling complex projects from start to finish. Beyond his technical skills, Nick is
-an enthusiastic learner who continuously explores emerging technologies and stays up
-to date with the latest industry trends. He is an active participant in the web
-development community, engaging in discussions, contributing to open-source projects,
-and sharing insights with fellow developers. His belief in continuous growth and
-innovation drives him to push boundaries and refine his skills with every project. For
-Nick, web development is more than just writing code—it's about creating meaningful
-digital experiences that leave a lasting impact. Whether he's designing a sleek
-landing page, developing a complex web application, or optimizing an existing
-platform, he approaches every challenge with dedication, creativity, and precision.
-His goal is to build solutions that not only meet client expectations but also elevate
-the standard of web development, ensuring that every project he works on stands out in
-the digital landscape.`
+export const aboutText = `Hi, I’m Jianhui Ling, but you can call me James. 
+I recently completed my Master of Information Technology at Monash University, 
+where I also earned my Bachelor’s degree in Computer Science. I’m passionate about building scalable, 
+high-performance digital solutions and have hands-on experience across full-stack development, cloud architecture,
+ and DevOps practices. In my recent projects, I’ve designed and developed web applications using Vue.js, React, and Node.js, 
+ and deployed them on AWS using automated CI/CD pipelines with GitHub Actions, PM2, and Nginx — reducing deployment time from 10 minutes 
+ to just 2 minutes. I’ve also worked on a serverless image recognition system using AWS Lambda, API Gateway, and DynamoDB that 
+ supported over 100 concurrent users and cut storage costs by 40%. I thrive in collaborative Agile environments and 
+ enjoy working with cross-functional, cross-cultural teams. I value clear communication, problem-solving, and user-focused 
+ thinking, and I’m always eager to learn new technologies. For me, development isn’t just about writing code — it’s about
+  turning real-world challenges into meaningful digital solutions.`
 
 export const skillCards = [
   {

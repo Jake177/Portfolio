@@ -7,3 +7,40 @@
 .special-font {
   font-family: 'Bitcount Single', sans-serif;
 }
+
+.normal-font {
+  font-family: 'Manrope', sans-serif;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #3a06f5;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #eb1d1d45;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #00f435;
+}
+
+@theme{
+  --animate-bounce: bounce 2s infinite;
+  @keyframes bounce {
+    0%,
+    100% {
+      transform:translateY(-75%);
+      animation-timing-function:ease-out;
+    }
+    50% {
+      transform:translateY(2px);
+      animation-timing-function:ease-in;
+    }
+  }
+}
