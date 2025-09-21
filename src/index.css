@@ -17,17 +17,26 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background-color: #3a06f5;
+  background-color: #767676;
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #eb1d1d45;
+  background-color: #013286;
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #00f435;
+  background-color: #3b82f6;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #fbbf24;
+  border-radius: 4px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #f59e0b;
 }
 
 @theme{
@@ -44,3 +53,6 @@
     }
   }
 }
+
+
+@custom-variant dark (&:where(.dark, .dark *));

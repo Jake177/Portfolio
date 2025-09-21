@@ -23,10 +23,10 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [])
   return (
-  <div className="w-full min-h-screen flex flex-col justify-center items-center isolate relative z-10 bg-gray-900">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center isolate relative z-10">
       <Navbar />
       <div className="flex flex-col md:items-center items-start gap-y-3 xl:mb-0 md:mb-20 mb-0 xl:mt-80 md:mt-40 mt-20">
-        <h1 className="flex flex-col xl:space-y-8 md:space-y-4 space-y-2 xl:text-6xl md:text-4xl text-3xl md:font-normal font-bolder text-yellow-500 mt-8 md:mt-0">
+        <h1 className="flex flex-col xl:space-y-8 md:space-y-4 space-y-2 xl:text-6xl md:text-4xl text-3xl md:font-normal font-bolder mt-8 md:mt-0">
           <span className="flex">
             {letters.map((letter, index) => (
               <span
@@ -46,16 +46,14 @@ const Hero = () => {
             I am a {' '}<span
               className={`inline-block xl:w-[460px] md:w-[240px] w-[160px] lg:ml-6 ml-2 font-extrabold whitespace-nowrap text-center transform origin-right transition-transform duration-400 ease-out
               ${isRotating ? 'rotate-[-100deg]' : 'rotate-0'}`}>{currentText}</span>
-            {' '}Developer</span> 
+            {' '}Developer</span>
         </h1>
         <button
-          className="xl:w-[400px] md:w-[300px] w-[270px] bg-gray-200
-                  md:py-1 py-0 md:px-4 px-2 xl:text-2xl md:text-xl text-base 
-                  text-gray-900 tracking-widest rounded-r-4xl flex justify-between 
+          className="xl:w-[400px] md:w-[300px] w-[270px] bg-gray-900 dark:bg-gray-200
+                  md:py-1 py-0 md:px-4 px-2 xl:text-2xl md:text-xl text-base text-yellow-500
+                  dark:text-blue-900 font-bold tracking-widest transition-color duration-300 rounded-r-4xl flex justify-between 
                   items-center md:mr-auto md:mx-0 mx-auto normal-font xl:mt-16 md:mt-8 mt-4"
           onClick={() => setIsTextVisible(!isTextVisible)}
-          onMouseEnter={() => setImageOpacity(0.8)}
-          onMouseLeave={() => setImageOpacity(0.5)}
         >
           {isTextVisible ? 'Hide My Story' : 'Read My Story'}{' '}
           <i className={`bx ${isTextVisible ? 'bx-book-alt' : 'bx-book-open'}`}>
@@ -64,7 +62,7 @@ const Hero = () => {
 
         <div className="flex md:gap-12 gap-2 mr-auto">
           {socialIcons.map((social, index) => (
-            <a key={index} href="#" className="xl:text-3xl m:text-2xl text-yellow-500 hover:text-white transition-colors duration-300">
+            <a key={index} href="#" className="xl:text-3xl m:text-2xl text-blue-500 dark:text-yellow-500 dark:hover:text-white hover:text-gray-900 transition-colors duration-300">
               <i className={social.icon}></i>
             </a>
           ))}
@@ -75,12 +73,14 @@ const Hero = () => {
             src="images/pet.png"
             alt="Pet Image"
             className="w-full mx-auto transition-opacity duration-500"
+            onMouseEnter={() => setImageOpacity(0.5)}
+            onMouseLeave={() => setImageOpacity(0.8)}
             style={{ opacity: imageOpacity }} />
-          <span className="xl:text-xs md:text-[10px] text-[8px] font-bold tracking-wide absolute -translate-x-20 -translate-y-80 xl:right-22 lg:right-26 md:right-16 right-10 rotate-[3.5deg] animate-bounce text-yellow-200">zzzzzz</span>
+          <span className="xl:text-xs md:text-[10px] text-[8px] font-bold tracking-wide absolute -translate-x-20 -translate-y-80 xl:right-22 lg:right-26 md:right-16 right-10 rotate-[3.5deg] animate-bounce">zzzzzz</span>
         </div>
-  <div className="lg:w-[600px] md:w-[500px] w-[350px] mx-auto relative z-10">
+        <div className="lg:w-[600px] md:w-[500px] w-[350px] mx-auto relative z-10">
           <div className={`xl:h-[150px] h-[100px] px-3 xl:text-lg md:text-base text-xs font-light text-gray-200 text-justify tracking-wide overflow-y-auto transform origin-top custom-scrollbar ${isTextVisible ? 'scale-y-100' : 'scale-y-0'} transition-transform duration-500`}>
-            <p className="xl:py-3 py-1 px-1 [&::first-letter]:text-[30px] [&::first-letter]:ml-5 [&::first-letter]:text-yellow-500 normal-font">{aboutText}</p>
+            <p className="xl:py-3 py-1 px-1 [&::first-letter]:text-[30px] [&::first-letter]:ml-5 [&::first-letter]:text-blue-500 dark:[&::first-letter]:text-yellow-500 normal-font dark:text-gray-200 text-gray-900">{aboutText}</p>
           </div>
         </div>
       </div>
