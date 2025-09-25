@@ -100,7 +100,7 @@ export const skillCards = [
   },
     {
     icon: 'bx bx-mobile',
-    title: 'App Development',
+    title: 'App Dev',
     description:
       'App development is about creating software applications that run on mobile devices. I have experience in building native mobile apps using Java and Kotlin for Android. My focus is on delivering smooth performance, intuitive navigation, and seamless integration with backend services. Whether it’s a simple utility app or a complex platform, I ensure that the app meets user needs and provides a great user experience.',
     projectCount: 4,

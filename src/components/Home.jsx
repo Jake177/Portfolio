@@ -53,8 +53,9 @@ const Home = () => {
             <span className="mr-2">I am a</span>
             <span
               className={`relative inline-block font-extrabold mx-1 md:mx-2
-                          md:whitespace-nowrap text-center transform origin-right
+                          whitespace-nowrap text-center transform origin-center
                           transition-transform duration-400 ease-out
+                          xl:w-[420px] md:w-[200px] w-[140px]
                           ${isRotating ? 'md:rotate-[-100deg]' : 'rotate-0'}`}
             >
               {currentText}
