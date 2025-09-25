@@ -83,7 +83,7 @@ const Home = () => {
           ))}
 
         </div> */}
-        <div className="lg:w-[600px] md:w-[500px] w-[350px] absolute -translate-y-1/2 translate-x-50 -z-10">
+  <div className="lg:w-[600px] md:w-[500px] w-[260px] max-w-[80vw] absolute -translate-y-1/2 left-[55%] -translate-x-1/2 -z-10">
           <img
             src="images/pet.png"
             alt="Pet Image"
@@ -91,7 +91,7 @@ const Home = () => {
             onMouseEnter={() => setImageOpacity(0.5)}
             onMouseLeave={() => setImageOpacity(0.8)}
             style={{ opacity: imageOpacity }} />
-          <span className="xl:text-xs md:text-[10px] text-[8px] font-bold tracking-wide absolute -translate-x-20 -translate-y-80 xl:right-22 lg:right-26 md:right-16 right-10 rotate-[3.5deg] animate-bounce">zzzzzz</span>
+          <span className="xl:text-s md:text-[10px] text-[9px] font-bold tracking-wide absolute -top-0 right-[60%] rotate-[6deg] animate-bounce">zzzzzz</span>
         </div>
         <div className="lg:w-[700px] md:w-[560px] w-[90vw] max-w-[800px] mx-auto relative z-10">
           <div
