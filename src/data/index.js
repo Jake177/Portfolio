@@ -1,3 +1,6 @@
+/* 
+Letters used in the introduction animation
+*/
 export const letters = [
   { char: 'H', img: 'images/person-img-1.jpg', rotate: '-rotate-15' },
   { char: 'e', img: 'images/person-img-2.jpg', rotate: 'rotate-15' },
@@ -6,6 +9,9 @@ export const letters = [
   { char: 'o', img: 'images/person-img-5.jpg', rotate: '-rotate-15' },
 ]
 
+/* 
+Professions to cycle through in the introduction animation
+*/
 export const professionTexts = ['Front End', 'Back End', 'Full Stack','Cloud','Software']
 
 export const socialIcons = [
@@ -15,82 +21,91 @@ export const socialIcons = [
   { icon: 'bx bxl-facebook-square' },
 ]
 
-export const aboutText = `Hi, I’m Jianhui Ling, but you can call me James. 
-I recently completed my Master of Information Technology at Monash University, 
-where I also earned my Bachelor’s degree in Computer Science. I’m passionate about building scalable, 
-high-performance digital solutions and have hands-on experience across full-stack development, cloud architecture,
- and DevOps practices. In my recent projects, I’ve designed and developed web applications using Vue.js, React, and Node.js, 
- and deployed them on AWS using automated CI/CD pipelines with GitHub Actions, PM2, and Nginx — reducing deployment time from 10 minutes 
- to just 2 minutes. I’ve also worked on a serverless image recognition system using AWS Lambda, API Gateway, and DynamoDB that 
- supported over 100 concurrent users and cut storage costs by 40%. I thrive in collaborative Agile environments and 
- enjoy working with cross-functional, cross-cultural teams. I value clear communication, problem-solving, and user-focused 
- thinking, and I’m always eager to learn new technologies. For me, development isn’t just about writing code — it’s about
-  turning real-world challenges into meaningful digital solutions.`
+/* 
+About me text content
+*/
+export const aboutText = {
+  intro: "Hi, I’m Jianhui Ling (James). I recently completed my Master of IT at Monash University.",
+  focus: "I specialize in cloud engineering and full-stack development, with over two years of AWS experience. I’m currently an AWS Certified Cloud Practitioner, and I’m preparing for the Solutions Architect – Associate certification.",
+  projects: [
+    "Designed and deployed web applications using Vue.js, React, and Node.js with CI/CD pipelines (GitHub Actions, PM2, Nginx), reducing deployment time from 10 minutes to 2 minutes.",
+    "Built serverless image recognition system with AWS Lambda, API Gateway, and DynamoDB, supporting 100+ concurrent users and reducing storage costs by 40%.",
+    "Native Android app development using Java and Kotlin, implementing RESTful APIs and Firebase integration for university sport activities.",
+  ],
+  agile: "I also bring 2 years of Agile experience, collaborating with cross-functional, cross-cultural teams to deliver scalable, high-performance solutions.",
+  philosophy: "For me, development goes beyond just writing code. It’s about transforming real-world challenges into impactful, cost-effective, and user-focused digital solutions."
+};
 
+/* 
+Skill cards data
+*/
 export const skillCards = [
-  {
-    icon: 'bx bx-pen',
-    title: 'Design',
-    description:
-      'Design is all about creating visually appealing and user-friendly interfaces. I specialize in UI/UX design, ensuring every project balances aesthetics with functionality. Using tools like Figma and Adobe XD, I craft intuitive layouts that enhance user experience. From wireframes to high-fidelity prototypes, I focus on clean, minimal, and modern designs tailored for web and mobile applications.',
-    projectCount: 3,
-    hoverPosition: {
-      large: 'bottom',
-      small: 'bottom',
-    },
-  },
-  {
-    icon: 'bx bx-camera',
-    title: 'Photography',
-    description:
-      'Photography is an essential part of digital content creation, capturing high-quality visuals that enhance branding and storytelling. I have experience in portrait, landscape, and product photography, ensuring every image is edited and optimized for the web. Understanding lighting, composition, and post-processing allows me to create compelling images that elevate visual communication across various platforms.',
-    projectCount: 4,
-    hoverPosition: {
-      large: 'bottom',
-      small: 'bottom',
-    },
-  },
-  {
+    {
     icon: 'bx bxs-file-doc',
     title: 'Front-End Dev',
     description:
-      'Front-end development is about bringing designs to life through clean and efficient code. I specialize in HTML, CSS, and JavaScript, along with frameworks like React to build dynamic and interactive web applications. My focus is on performance, accessibility, and responsiveness, ensuring that every website functions flawlessly across all devices and screen sizes.',
+      'Front-end development is about bringing designs to life through clean and efficient code. I specialize in HTML, CSS, and JavaScript, along with frameworks like React and Vue to build dynamic and interactive web applications. My focus is on performance, accessibility, and responsiveness, ensuring that every website functions flawlessly across all devices and screen sizes.',
     projectCount: 4,
     hoverPosition: {
       large: 'bottom',
       small: 'bottom',
     },
   },
-  {
-    icon: 'bx bxs-devices',
-    title: 'RWD',
-    description:
-      "In today's digital world, ensuring a seamless user experience across all devices is crucial. I implement responsive design techniques using modern CSS frameworks like Tailwind CSS and Bootstrap. By employing fluid grids, flexible layouts, and media queries, I create web pages that look great and function perfectly on desktops, tablets, and smartphones.",
-    projectCount: 3,
-    hoverPosition: {
-      large: 'top',
-      small: 'bottom',
-    },
-  },
-  {
+    {
     icon: 'bx bx-data',
     title: 'Back-End Dev',
     description:
-      'Back-end development powers the functionality behind web applications. I work with Node.js and databases like MongoDB and PostgreSQL to build secure and scalable server-side applications. Whether handling authentication, managing API requests, or optimizing database queries, I ensure data is processed efficiently and securely to support seamless front-end interactions.',
+      'Back-end development powers the functionality behind web applications. I work with Node.js and databases like DynamoDB and PostgreSQL to build secure and scalable server-side applications. Whether handling authentication, managing API requests, or optimizing database queries, I ensure data is processed efficiently and securely to support seamless front-end interactions.',
     projectCount: 3,
     hoverPosition: {
       large: 'top',
       small: 'bottom',
     },
   },
+  {
+    icon: 'bx bx-code',
+    title: 'DevOps',
+    description:
+      'DevOps is about integrating development and operations to improve collaboration and productivity. I have experience with CI/CD pipelines, infrastructure as code, and monitoring solutions. By leveraging tools like Docker, Kubernetes, and AWS, I create scalable and reliable systems that enhance deployment speed and application performance.',
+    projectCount: 3,
+    hoverPosition: {
+      large: 'bottom',
+      small: 'bottom',
+    },
+  },
+
+
+  {
+    icon: 'bx bxs-devices',
+    title: 'Cloud',
+    description:
+      "In today's digital world, cloud computing is essential for scalable and flexible web applications. As an AWS cloud practitioner, I utilize services like AWS and Azure to deploy applications, manage databases, and ensure high availability. By utilizing containerization with Docker and orchestration with Kubernetes, I create robust solutions that can handle varying loads and provide seamless user experiences.",
+    projectCount: 3,
+    hoverPosition: {
+      large: 'top',
+      small: 'bottom',
+    },
+  },
+
   {
     icon: 'bx bxl-github',
     title: 'Git Version Control',
     description:
-      'Version control is essential for modern web development, and Git is my go-to tool for managing code efficiently. I use GitHub for collaboration, handling pull requests, merging branches, and tracking project changes. Whether working solo or in a team, I ensure code is well-documented, structured, and easily maintainable through proper versioning practices.',
+      'Version control is essential for modern web development, and Git is my go-to tool for managing code efficiently. I use Git for branching, merging, and collaborating with teams on platforms like GitHub and GitLab. By maintaining a clean commit history and utilizing pull requests, I ensure that code changes are tracked, reviewed, and integrated smoothly, facilitating effective teamwork and project management.',
     projectCount: 3,
     hoverPosition: {
       large: 'top',
+      small: 'bottom',
+    },
+  },
+    {
+    icon: 'bx bx-mobile',
+    title: 'App Development',
+    description:
+      'App development is about creating software applications that run on mobile devices. I have experience in building native mobile apps using Java and Kotlin for Android. My focus is on delivering smooth performance, intuitive navigation, and seamless integration with backend services. Whether it’s a simple utility app or a complex platform, I ensure that the app meets user needs and provides a great user experience.',
+    projectCount: 4,
+    hoverPosition: {
+      large: 'bottom',
       small: 'bottom',
     },
   },

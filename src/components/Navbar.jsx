@@ -1,6 +1,7 @@
 import React, { useRef,useEffect, use} from 'react'
 import { useTheme } from '../context/ThemeContext';
 
+/* Navbar component with dark mode toggle and section highlighting */
 const Navbar = () => {
     const { darkMode, toggleDarkMode } = useTheme();
     const [activeSection, setActiveSection] = React.useState("home");
@@ -26,6 +27,7 @@ const Navbar = () => {
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+    /* Handle navigation link clicks with smooth scrolling */
     const handleNavClick = (e, sectionId) => {
         e.preventDefault();
         setActiveSection(sectionId);
@@ -42,7 +44,6 @@ const Navbar = () => {
                 <i className={`${darkMode ? 'bx bx-sun' : 'bx bx-moon'} md:text-3xl sm:text-2xl text-xl text-gray-600 dark:text-gray-200 sm:ml-4 ml-2 cursor-pointer`} onClick={toggleDarkMode}></i>
                 <a href='#' className={`special-font md:text-2xl sm:text-xl text-lg`}>Jianhui Ling</a>
             </div>
-
             <div>
                 <a
                     href='#home'

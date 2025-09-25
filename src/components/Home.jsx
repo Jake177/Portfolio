@@ -3,7 +3,8 @@ import Navbar from "./Navbar";
 import NavigationCircles from "./NavigationCircles";
 import { letters, professionTexts, aboutText, socialIcons } from "../data/index";
 
-const Hero = () => {
+const Home = () => {
+  /* Introduction section with animated text and hover effects */
   const [hoveredLetter, setHoveredLetter] = React.useState(null);
   const [currentText, setCurrentText] = React.useState(professionTexts[0]);
   const [isRotating, setIsRotating] = React.useState(false);
@@ -80,25 +81,35 @@ const Hero = () => {
             style={{ opacity: imageOpacity }} />
           <span className="xl:text-xs md:text-[10px] text-[8px] font-bold tracking-wide absolute -translate-x-20 -translate-y-80 xl:right-22 lg:right-26 md:right-16 right-10 rotate-[3.5deg] animate-bounce">zzzzzz</span>
         </div>
-          <div className="lg:w-[700px] md:w-[560px] w-[90vw] max-w-[800px] mx-auto relative z-10">
-            <div
-              className={`
+        <div className="lg:w-[700px] md:w-[560px] w-[90vw] max-w-[800px] mx-auto relative z-10">
+          <div
+            className={`
                 xl:text-lg md:text-base text-sm font-light tracking-wide custom-scrollbar
                 overflow-y-auto rounded-xl border shadow-md backdrop-blur-sm
                 bg-white/80 dark:bg-gray-800/70 border-gray-200/40 dark:border-gray-700/40
                 transition-all duration-500 ease-out
                 ${isTextVisible ? 'max-h-[60vh] opacity-100 py-4 md:py-6 px-4 md:px-6' : 'max-h-0 opacity-0 py-0 px-4 md:px-6'}
               `}
-            >
-              <p className="leading-relaxed text-gray-900 dark:text-gray-200 text-justify normal-font xl:py-1 py-0 [&::first-letter]:text-[30px] [&::first-letter]:ml-5 [&::first-letter]:text-blue-500 dark:[&::first-letter]:text-yellow-500">
-                {aboutText}
-              </p>
+          >
+            <div className="leading-relaxed text-gray-900 dark:text-gray-200 text-justify xl:py-1 py-0 [&::first-letter]:text-[30px] [&::first-letter]:ml-5 [&::first-letter]:text-blue-500 dark:[&::first-letter]:text-yellow-500">
+              <p className="normal-font">{aboutText.intro}</p>
+              <p className="normal-font">{aboutText.focus}</p>
+              <p className="normal-font">In my recent projects, I have:</p>
+              <ul className="list-disc list-inside space-y-1">
+                {aboutText.projects.map((item, i) => (
+                  <li className="normal-font" key={i}>{item}</li>
+                ))}
+              </ul>
+              <br />
+              <p className="normal-font">{aboutText.agile}</p>
+              <p className="normal-font">{aboutText.philosophy}</p>
             </div>
           </div>
+        </div>
       </div>
-      <NavigationCircles section="home"/>
+      <NavigationCircles section="home" />
     </div>
   );
 };
 
-export default Hero;
+export default Home;

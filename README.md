@@ -1,12 +1,31 @@
-# React + Vite
+<div align="center">
+	<h1>Personal Portfolio (React + Vite + Tailwind CSS)</h1>
+	<p>Responsive, theme‑aware developer portfolio with animated intro, skill cards, dynamic story reveal, and back‑to‑top interaction.</p>
+	<img src="public/favicon.svg" alt="Portfolio" height="90" />
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Features
 
-Currently, two official plugins are available:
+- ⚡ Vite + React 19 (SWC) for fast HMR
+- 🎨 Tailwind CSS v4 utility styling (light / dark mode toggle via context)
+- 🌓 Persistent dark mode ready (context hook pattern in place)
+- 👋 Animated hero headline cycling through profession keywords
+- 🖼 Hover letters reveal associated images ("Hello" sequence)
+- 📖 Expandable "Read My Story" panel with smooth max-height + opacity transition
+- 🗂 Modular skill cards (icon + title inline, scrollable description)
+- ⬆️ Floating Back‑to‑Top button (appears after scroll)
+- 🔗 Contact section with styled external profile links (GitHub & LinkedIn)
+- 🧩 Centralized data (`src/data/index.js`) for easy content edits
+- ♿ Accessible focus styles & semantic HTML sections
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧱 Tech Stack
 
-## Expanding the ESLint configuration
+| Layer | Tools |
+|-------|-------|
+| Framework | React 19 + Vite |
+| Styling | Tailwind CSS 4, custom utility classes |
+| Icons | Boxicons (CDN) |
+| State / Context | React Context for theme (`ThemeProvider`) |
+| Build | ES Modules, SWC transform |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
