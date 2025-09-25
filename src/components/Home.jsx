@@ -45,11 +45,22 @@ const Home = () => {
               </span>
             ))}
           </span>
-          <span className="normal-font xl:text-6xl md:text-4xl text-2xl tracking-wider xl:py-4 py-2 overflow-hidden text-center">
-            I am a {' '}<span
-              className={`inline-block xl:w-[460px] md:w-[320px] w-[200px] lg:ml-6 ml-2 font-extrabold whitespace-nowrap text-center transform origin-right transition-transform duration-400 ease-out
-              ${isRotating ? 'hidden md:rotate-[-100deg]' : 'rotate-0'}`}>{currentText}</span>
-            {' '}Developer</span>
+          <span
+            className="flex flex-wrap items-center justify-center md:justify-start normal-font
+                       text-[clamp(1.1rem,6vw,2rem)] md:text-4xl xl:text-6xl
+                       tracking-wide xl:py-4 py-2 text-center md:text-left leading-tight"
+          >
+            <span className="mr-2">I am a</span>
+            <span
+              className={`relative inline-block font-extrabold mx-1 md:mx-2
+                          md:whitespace-nowrap text-center transform origin-right
+                          transition-transform duration-400 ease-out
+                          ${isRotating ? 'md:rotate-[-100deg]' : 'rotate-0'}`}
+            >
+              {currentText}
+            </span>
+            <span className="ml-2">Developer</span>
+          </span>
         </h1>
         <button
           className="xl:w-[400px] md:w-[300px] w-[270px] bg-gray-900 dark:bg-gray-200

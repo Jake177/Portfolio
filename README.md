@@ -3,6 +3,10 @@
 	<p>Responsive, theme‑aware developer portfolio with animated intro, skill cards, dynamic story reveal, and back‑to‑top interaction.</p>
 </div>
 
+## 🚀 Live Demo
+
+https://jake177.github.io/Portfolio/
+
 ## ✨ Features
 
 - ⚡ Vite + React 19 (SWC) for fast HMR
