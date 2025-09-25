@@ -1,7 +1,6 @@
 <div align="center">
 	<h1>Personal Portfolio (React + Vite + Tailwind CSS)</h1>
 	<p>Responsive, theme‑aware developer portfolio with animated intro, skill cards, dynamic story reveal, and back‑to‑top interaction.</p>
-	<img src="public/favicon.svg" alt="Portfolio" height="90" />
 </div>
 
 ## ✨ Features
