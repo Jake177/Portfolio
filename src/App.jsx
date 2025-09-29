@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from './components/Home'
+import Navbar from './components/Navbar'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Loader from './components/Loader'
@@ -17,11 +18,12 @@ const App = () => {
   }, []);
   return (
     <ThemeProvider>
-      <div className='min-h-screen  bg-gray-900 dark:bg-gray-900 dark:text-yellow-500 text-blue-500 transition-colors duration-300'>
+  <div className='min-h-screen pt-20 sm:pt-24 bg-gray-900 dark:bg-gray-900 dark:text-yellow-500 text-blue-500 transition-colors duration-300'>
         <Loader isLoading={isLoading}/>
         {!isLoading && (
         <>
-        <Home />
+  <Navbar />
+  <Home />
         <AboutMe />
         <Skills />
         <Projects />

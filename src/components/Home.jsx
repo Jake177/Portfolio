@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import NavigationCircles from "./NavigationCircles";
 
 const focusHighlights = [
@@ -26,11 +25,16 @@ const focusHighlights = [
 const Home = () => {
   return (
     <div id="home" className="relative min-h-screen bg-gray-900 text-yellow-500 isolate overflow-hidden">
-      <Navbar />
 
       <section className="relative w-full flex flex-col items-center justify-center px-6 pt-28 pb-24 sm:pt-32 md:pt-36">
         <div className="absolute inset-0 hidden sm:block">
-          <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2 bg-[url('images/person-img-4.jpg')] bg-cover bg-center opacity-70 sm:opacity-90"></div>
+          <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2 overflow-hidden">
+            <img 
+              src="./images/person-img-4.jpg" 
+              alt="Jianhui James Ling portrait" 
+              className="w-full h-full object-cover opacity-70 sm:opacity-90"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/92 to-gray-900/35"></div>
         </div>
 
@@ -58,7 +62,11 @@ const Home = () => {
 
             <div className="sm:hidden w-full mt-10">
               <div className="relative w-full aspect-[3/4] rounded-[32px] border border-yellow-500/25 overflow-hidden shadow-[0_0_40px_rgba(234,179,8,0.18)]">
-                <div className="absolute inset-0 bg-[url('images/person-img-4.jpg')] bg-cover bg-center" aria-hidden="true"></div>
+                <img 
+                  src="./images/person-img-4.jpg" 
+                  alt="Jianhui James Ling portrait" 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" aria-hidden="true"></div>
               </div>
             </div>

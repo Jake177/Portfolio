@@ -74,7 +74,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className='w-full fixed top-0 z-50 bg-gray-200 dark:bg-gray-900 transition-colors duration-300 shadow-sm'>
+        <div className='fixed inset-x-0 top-0 z-[120] w-full bg-gray-200/90 dark:bg-gray-900/80 backdrop-blur-md transition-colors duration-300 shadow-sm'>
             <div className='w-full md:h-12 sm:h-14 h-18 flex items-center justify-between xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 py-3'>
                 <a href='#' className='normal-font md:text-2xl sm:text-xl text-lg'>Jianhui (James) Ling</a>
 
