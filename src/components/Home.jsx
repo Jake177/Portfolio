@@ -30,7 +30,7 @@ const Home = () => {
         <div className="absolute inset-0 hidden sm:block">
           <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2 overflow-hidden">
             <img 
-              src="./images/person-img-4.jpg" 
+              src="./public/images/person-img-4.jpg" 
               alt="Jianhui James Ling portrait" 
               className="w-full h-full object-cover opacity-70 sm:opacity-90"
             />
@@ -63,7 +63,7 @@ const Home = () => {
             <div className="sm:hidden w-full mt-10">
               <div className="relative w-full aspect-[3/4] rounded-[32px] border border-yellow-500/25 overflow-hidden shadow-[0_0_40px_rgba(234,179,8,0.18)]">
                 <img 
-                  src="./images/person-img-4.jpg" 
+                  src="./public/images/person-img-4.jpg" 
                   alt="Jianhui James Ling portrait" 
                   className="absolute inset-0 w-full h-full object-cover" 
                 />
