@@ -13,9 +13,11 @@ const Contact = () => {
         </h2>
 
         <div className="mb-8 sm:mb-12">
-          <p className="normal-font text-base sm:text-lg leading-relaxed text-gray-900 dark:text-gray-200 text-balance">
-            I am currently open to new opportunities and collaborations. Whether you have a project in mind, want to discuss potential roles, or simply wish to connect, feel free to reach out. I look forward to hearing from you!
-          </p>
+          <div className="normal-font border border-yellow-500/25 bg-gray-900/80 text-yellow-100 rounded-3xl px-6 sm:px-8 py-8 shadow-[0_24px_45px_-30px_rgba(234,179,8,0.3)]">
+            <p className="text-base sm:text-lg leading-relaxed text-yellow-100/85 text-balance">
+              I’m currently collaborating on cloud platform initiatives and open to conversations about robust, high-impact delivery. Whether you are mapping a migration, need a trusted partner for platform evolution, or simply want to exchange ideas, I’d love to hear from you.
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mx-auto normal-font">

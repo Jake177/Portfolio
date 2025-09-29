@@ -1,124 +1,71 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import NavigationCircles from "./NavigationCircles";
-import { letters, professionTexts, aboutText, socialIcons } from "../data/index";
+
+const focusHighlights = [
+  {
+    title: "Cloud & Serverless Architecture",
+    detail: "Designed scalable AWS solutions with Lambda, S3, and DynamoDB, enabling high concurrency and zero-maintenance deployments"
+  },
+  {
+    title: "Full-Stack & Platform Engineering",
+    detail: "Built web and mobile applications with Vue.js, React, and Kotlin, supported by CI/CD automation and secure API integrations"
+  },
+  {
+    title: "Data & Intelligence",
+    detail: "Developed streaming pipelines, real-time object detection, and NLP-driven features to deliver actionable insights at scale"
+  },
+  {
+    title: "Innovation & Impact",
+    detail: "Prototyped user-focused solutions—from fraud prevention tools to community event apps—achieving measurable cost savings and adoption"
+  }
+];
+
+
 
 const Home = () => {
-  /* Introduction section with animated text and hover effects */
-  const [hoveredLetter, setHoveredLetter] = React.useState(null);
-  const [currentText, setCurrentText] = React.useState(professionTexts[0]);
-  const [isRotating, setIsRotating] = React.useState(false);
-  const [isTextVisible, setIsTextVisible] = React.useState(false);
-  const [imageOpacity, setImageOpacity] = React.useState(0.5);
-  let currentIndex = 0;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsRotating(true);
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % professionTexts.length;
-        setCurrentText(professionTexts[currentIndex]);
-        setIsRotating(false);
-      }, 300)
-    }, 5000)
-
-    return () => clearInterval(interval);
-  }, [])
   return (
-    <div id="home" className="w-full min-h-screen flex flex-col justify-center items-center isolate relative z-10">
+    <div id="home" className="relative min-h-screen bg-gray-900 text-yellow-500 isolate overflow-hidden">
       <Navbar />
-      <div className="flex flex-col md:items-center items-start gap-y-3 xl:mb-0 md:mb-20 mb-0 xl:mt-80 md:mt-40 mt-20">
-        <h1 className="flex flex-col xl:space-y-8 md:space-y-4 space-y-2 xl:text-6xl md:text-4xl text-3xl md:font-normal font-bolder mt-8 md:mt-0
-        ">
-          <span className="flex mx-auto md:mx-0">
-            {letters.map((letter, index) => (
-              <span
-                key={index} className="special-font inline-block md:w-38 w-32 xl:-mr-20 -mr-24 relative"
-                onMouseEnter={() => setHoveredLetter(index)}
-                onMouseLeave={() => setHoveredLetter(null)}>
-                {letter.char}
-                <img
-                  src={letter.img}
-                  alt={`Hover image ${index + 1}`}
-                  className={`xl:h-36 h-24 absolute bottom-full -translate-x-1/2
-                ${letter.rotate} ${hoveredLetter === index ? 'visible' : 'invisible'}`} />
-              </span>
-            ))}
-          </span>
-          <span
-            className="flex flex-wrap items-center justify-center md:justify-start normal-font
-                       text-[clamp(1.1rem,6vw,2rem)] md:text-4xl xl:text-6xl
-                       tracking-wide xl:py-4 py-2 text-center md:text-left leading-tight"
-          >
-            <span className="mr-2">I am a</span>
-            <span
-              className={`relative inline-block font-extrabold mx-1 md:mx-2
-                          whitespace-nowrap text-center transform origin-center
-                          transition-transform duration-400 ease-out
-                          xl:w-[420px] md:w-[200px] w-[140px]
-                          ${isRotating ? 'md:rotate-[-100deg]' : 'rotate-0'}`}
-            >
-              {currentText}
-            </span>
-            <span className="ml-2">Developer</span>
-          </span>
-        </h1>
-        <button
-          className="xl:w-[400px] md:w-[300px] w-[270px] bg-gray-900 dark:bg-gray-200
-                  md:py-1 py-0 md:px-4 px-2 xl:text-2xl md:text-xl text-base text-yellow-500
-                  dark:text-blue-900 font-bold tracking-widest transition-color duration-300 rounded-r-4xl flex justify-between 
-                  items-center md:mr-auto md:mx-0 mx-auto normal-font xl:mt-16 md:mt-8 mt-4"
-          onClick={() => setIsTextVisible(!isTextVisible)}
-        >
-          {isTextVisible ? 'Hide My Story' : 'Read My Story'}{' '}
-          <i className={`bx ${isTextVisible ? 'bx-book-alt' : 'bx-book-open'}`}>
-          </i>
-        </button>
 
-        {/* <div className="flex md:gap-12 gap-2 mr-auto absolute md:relative left-4 md:left-auto top-20 md:top-auto flex-col md:flex-row">
-          {socialIcons.map((social, index) => (
-            <a key={index} href="#" className="xl:text-3xl m:text-2xl text-blue-500 dark:text-yellow-500 dark:hover:text-white hover:text-gray-900 transition-colors duration-300">
-              <i className={social.icon}></i>
-            </a>
-          ))}
-
-        </div> */}
-  <div className="lg:w-[600px] md:w-[500px] w-[260px] max-w-[80vw] absolute -translate-y-1/2 left-[55%] -translate-x-1/2 -z-10">
-          <img
-            src="images/pet.png"
-            alt="Pet Image"
-            className="w-full mx-auto transition-opacity duration-500"
-            onMouseEnter={() => setImageOpacity(0.5)}
-            onMouseLeave={() => setImageOpacity(0.8)}
-            style={{ opacity: imageOpacity }} />
-          <span className="xl:text-s md:text-[10px] text-[9px] font-bold tracking-wide absolute -top-0 right-[60%] rotate-[6deg] animate-bounce">zzzzzz</span>
+      <section className="relative w-full flex flex-col items-center justify-center px-6 pt-28 pb-24 sm:pt-32 md:pt-36">
+        <div className="absolute inset-0 hidden sm:block">
+          <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2 bg-[url('images/person-img-4.jpg')] bg-cover bg-center opacity-70 sm:opacity-90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/92 to-gray-900/35"></div>
         </div>
-        <div className="lg:w-[700px] md:w-[560px] w-[90vw] max-w-[800px] mx-auto relative z-10">
-          <div
-            className={`
-                xl:text-lg md:text-base text-sm font-light tracking-wide custom-scrollbar
-                overflow-y-auto rounded-xl border shadow-md backdrop-blur-sm
-                bg-white/80 dark:bg-gray-800/70 border-gray-200/40 dark:border-gray-700/40
-                transition-all duration-500 ease-out
-                ${isTextVisible ? 'max-h-[60vh] opacity-100 py-4 md:py-6 px-4 md:px-6' : 'max-h-0 opacity-0 py-0 px-4 md:px-6'}
-              `}
-          >
-            <div className="leading-relaxed text-gray-900 dark:text-gray-200 text-justify xl:py-1 py-0 [&::first-letter]:text-[30px] [&::first-letter]:ml-5 [&::first-letter]:text-blue-500 dark:[&::first-letter]:text-yellow-500">
-              <p className="normal-font">{aboutText.intro}</p>
-              <p className="normal-font">{aboutText.focus}</p>
-              <p className="normal-font">In my recent projects, I have:</p>
-              <ul className="list-disc list-inside space-y-1">
-                {aboutText.projects.map((item, i) => (
-                  <li className="normal-font" key={i}>{item}</li>
-                ))}
-              </ul>
-              <br />
-              <p className="normal-font">{aboutText.agile}</p>
-              <p className="normal-font">{aboutText.philosophy}</p>
+
+        <div className="relative max-w-6xl w-full grid lg:grid-cols-[1fr,0.9fr] gap-10 lg:gap-16 items-start">
+          <div className="space-y-10">
+            <div className="space-y-4 max-w-2xl">
+              <span className="normal-font uppercase tracking-[0.45em] text-xs sm:text-sm text-yellow-500/70">Cloud Solution Engineer</span>
+              <h1 className="special-font text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight">
+                Jianhui (James) Ling
+              </h1>
+            </div>
+
+            <p className="normal-font text-base sm:text-lg text-yellow-500/85 max-w-xl leading-relaxed">
+              From serverless foundations to data-rich platforms, I partner with product teams to deliver cloud-native experiences that balance pace with precision. My toolkit spans AWS and Azure, with an emphasis on observability, automation, and tangible business outcomes.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
+              {focusHighlights.map((item) => (
+                <div key={item.title} className="border border-yellow-500/20 rounded-3xl px-5 py-6 bg-gray-900/75 backdrop-blur">
+                  <h3 className="special-font font-bold text-xs sm:text-sm uppercase tracking-[0.4em] text-gray-200 mb-2">{item.title}</h3>
+                  <p className="normal-font text-sm text-yellow-500 leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="sm:hidden w-full mt-10">
+              <div className="relative w-full aspect-[3/4] rounded-[32px] border border-yellow-500/25 overflow-hidden shadow-[0_0_40px_rgba(234,179,8,0.18)]">
+                <div className="absolute inset-0 bg-[url('images/person-img-4.jpg')] bg-cover bg-center" aria-hidden="true"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" aria-hidden="true"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
       <NavigationCircles section="home" />
     </div>
   );

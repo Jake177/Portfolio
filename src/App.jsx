@@ -4,6 +4,8 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Loader from './components/Loader'
 import { ThemeProvider } from './context/ThemeContext'
+import Projects from './components/Projects'
+import AboutMe from './components/AboutMe'
 
 const App = () => {
   const [isLoading,setIsLoading] = React.useState(true);
@@ -20,7 +22,9 @@ const App = () => {
         {!isLoading && (
         <>
         <Home />
+        <AboutMe />
         <Skills />
+        <Projects />
         <Contact />
         </>
         )}

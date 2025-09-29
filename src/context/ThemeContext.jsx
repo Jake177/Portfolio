@@ -6,7 +6,7 @@ const ThemeContext = createContext();
 ThemeProvider component to manage dark mode state and provide toggle functionality
 */
 export const ThemeProvider = ({ children }) => {
-    const [darkMode,setDarkMode] = useState(() => JSON.parse(localStorage.getItem('darkMode')) || false);
+    const [darkMode,setDarkMode] = useState(() => JSON.parse(localStorage.getItem('darkMode')) || true);
 
     useEffect(() => {
         const root = window.document.documentElement;
