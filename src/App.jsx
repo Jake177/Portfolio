@@ -17,7 +17,7 @@ const App = () => {
   }, []);
   return (
     <ThemeProvider>
-      <div className='min-h-screen  bg-gray-200 dark:bg-gray-900 dark:text-yellow-500 text-blue-500 transition-colors duration-300'>
+      <div className='min-h-screen  bg-gray-900 dark:bg-gray-900 dark:text-yellow-500 text-blue-500 transition-colors duration-300'>
         <Loader isLoading={isLoading}/>
         {!isLoading && (
         <>

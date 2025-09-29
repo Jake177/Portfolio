@@ -14,8 +14,8 @@ const Skills = () => {
         const updateShadows = () => {
             if (!container) return
             const { scrollLeft, scrollWidth, clientWidth } = container
-            setCanScrollLeft(scrollLeft > 12)
-            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 12)
+            setCanScrollLeft(scrollLeft > 50)
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5)
         }
 
         updateShadows()
@@ -44,11 +44,6 @@ const Skills = () => {
                 </header>
 
                 <div className='relative'>
-                    <div className='flex items-center justify-between px-1 pb-2 text-xs sm:text-sm normal-font text-yellow-500/60'>
-                        <span>Tap & drag to explore skill pillars</span>
-                        <span className='hidden sm:flex items-center gap-1'><i className='bx bx-swipe-right text-base'></i>Swipe</span>
-                    </div>
-
                     <div className='overflow-x-auto snap-x snap-mandatory pb-6 -mx-6 px-6 sm:-mx-10 sm:px-10 no-scrollbar scroll-smooth' ref={scrollRef}>
                         <div className='flex gap-5 min-w-full'>
                             {skillCards.map((card) => (
@@ -62,7 +57,7 @@ const Skills = () => {
                                         </span>
                                         <h3 className='normal-font text-lg font-semibold tracking-wide text-yellow-500'>{card.title}</h3>
                                     </div>
-                                    <p className='normal-font text-sm text-yellow-500/75 leading-relaxed max-h-48 overflow-y-auto custom-scrollbar pr-1'>
+                                    <p className='normal-font text-sm text-yellow-500/75 leading-relaxed'>
                                         {card.description}
                                     </p>
                                 </div>
@@ -70,14 +65,12 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className={`pointer-events-none absolute left-0 top-20 bottom-12 w-16 bg-gradient-to-r from-gray-900 to-transparent transition-opacity duration-300 hidden sm:block ${canScrollLeft ? 'opacity-100' : 'opacity-0'}`}></div>
-                    <div className={`pointer-events-none absolute right-0 top-20 bottom-12 w-16 bg-gradient-to-l from-gray-900 to-transparent transition-opacity duration-300 hidden sm:block ${canScrollRight ? 'opacity-100' : 'opacity-0'}`}></div>
 
                     <button
                         type='button'
                         aria-label='Scroll skills left'
                         onClick={() => handleScroll('prev')}
-                        className={`hidden sm:flex items-center justify-center h-12 w-12 rounded-full border border-yellow-500/20 bg-gray-900/80 backdrop-blur text-yellow-500 absolute left-2 top-1/2 -translate-y-1/2 transition duration-300 hover:border-yellow-500/50 ${canScrollLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                        className={`hidden sm:flex items-center justify-center h-12 w-12 rounded-full border border-yellow-500/20 bg-gray-900/80 backdrop-blur text-yellow-500 absolute -left-20 top-1/2 -translate-y-1/2 transition duration-300 hover:border-yellow-500/50 ${canScrollLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     >
                         <i className='bx bx-chevron-left text-2xl'></i>
                     </button>
@@ -86,7 +79,7 @@ const Skills = () => {
                         type='button'
                         aria-label='Scroll skills right'
                         onClick={() => handleScroll('next')}
-                        className={`hidden sm:flex items-center justify-center h-12 w-12 rounded-full border border-yellow-500/20 bg-gray-900/80 backdrop-blur text-yellow-500 absolute right-2 top-1/2 -translate-y-1/2 transition duration-300 hover:border-yellow-500/50 ${canScrollRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                        className={`hidden sm:flex items-center justify-center h-12 w-12 rounded-full border border-yellow-500/20 bg-gray-900/80 backdrop-blur text-yellow-500 absolute -right-20 top-1/2 -translate-y-1/2 transition duration-300 hover:border-yellow-500/50 ${canScrollRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     >
                         <i className='bx bx-chevron-right text-2xl'></i>
                     </button>
