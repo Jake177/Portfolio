@@ -74,9 +74,9 @@ const Navbar = () => {
     );
 
     return (
-        <div className='fixed inset-x-0 top-0 z-[120] w-full bg-gray-200/90 dark:bg-gray-900/80 backdrop-blur-md transition-colors duration-300 shadow-sm'>
-            <div className='w-full md:h-12 sm:h-14 h-18 flex items-center justify-between xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 py-3'>
-                <a href='#' className='normal-font md:text-2xl sm:text-xl text-lg'>Jianhui (James) Ling</a>
+        <div className='fixed inset-x-0 top-0 z-[120] w-full bg-gray-900/90 backdrop-blur-xl transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'>
+            <div className='w-full md:h-14 sm:h-16 h-18 flex items-center justify-between xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 py-3'>
+                <a href='#' className='normal-font md:text-2xl sm:text-xl text-lg text-gradient font-semibold hover:opacity-80 transition-opacity duration-200'>Jianhui (James) Ling</a>
 
                 <div className='hidden sm:flex items-center gap-x-8 lg:gap-x-12'>
                     {navLinks.map(renderLink)}
@@ -84,7 +84,7 @@ const Navbar = () => {
 
                 <button
                     type='button'
-                    className='sm:hidden inline-flex items-center justify-center text-3xl text-gray-700 dark:text-gray-200 transition-colors duration-300'
+                    className='sm:hidden inline-flex items-center justify-center text-3xl text-yellow-500 hover:text-yellow-400 transition-colors duration-300'
                     onClick={() => setIsMenuOpen((prev) => !prev)}
                     aria-label='Toggle navigation menu'
                     aria-expanded={isMenuOpen}
@@ -94,9 +94,9 @@ const Navbar = () => {
             </div>
 
             {isMenuOpen && (
-                <div className='sm:hidden flex flex-col gap-y-2 px-4 pb-4 bg-gray-200 dark:bg-gray-900 border-t border-gray-300/50 dark:border-gray-700/50'>
+                <div className='sm:hidden flex flex-col gap-y-2 px-4 pb-4 bg-gray-900/95 backdrop-blur-xl border-t border-yellow-500/10'>
                     {navLinks.map((link) => (
-                        <div key={link.id} className='py-2 border-b border-gray-300/40 dark:border-gray-700/40 last:border-b-0'>
+                        <div key={link.id} className='py-2 border-b border-yellow-500/10 last:border-b-0'>
                             {renderLink(link)}
                         </div>
                     ))}
