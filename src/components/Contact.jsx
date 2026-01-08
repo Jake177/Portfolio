@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen gradient-bg particles-bg grid-bg flex flex-col justify-center items-center px-4 py-16 sm:py-20 overflow-x-hidden"
+      className="relative min-h-screen particles-bg grid-bg flex flex-col justify-center items-center px-4 py-16 sm:py-20 overflow-x-hidden"
     >
       {/* 装饰性光晕 */}
       <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>

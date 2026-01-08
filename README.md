@@ -31,4 +31,26 @@ https://jake177.github.io/Portfolio/
 | State / Context | React Context for theme (`ThemeProvider`) |
 | Build | ES Modules, SWC transform |
 
+## command
+
+```bash
+npm install
+npm run dev
+```
+
+default：`http://localhost:5173`
+
+## production/preview
+
+```bash
+npm run build
+npm run preview
+```
+
+## deploy
+
+```bash
+npm run build
+```
+
 

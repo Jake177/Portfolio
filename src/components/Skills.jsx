@@ -36,7 +36,7 @@ const Skills = () => {
     }
 
     return (
-        <section id='skills' className='relative min-h-screen w-full gradient-bg grid-bg text-yellow-500 px-6 py-24 sm:py-28 isolate'>
+        <section id='skills' className='relative min-h-screen w-full grid-bg text-yellow-500 px-6 py-24 sm:py-28 isolate'>
             {/* 装饰性光晕 */}
             <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-1/4 right-1/3 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>

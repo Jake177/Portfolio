@@ -13,6 +13,10 @@ const focusHighlights = [
   {
     title: "Data & Intelligence",
     icon: "bx bx-data"
+  },
+  {
+    title: "DevOps & Automation",
+    icon: "bx bx-cog"
   }
 ];
 
@@ -20,7 +24,7 @@ const focusHighlights = [
 
 const Home = () => {
   return (
-    <div id="home" className="min-h-screen gradient-bg particles-bg grid-bg text-yellow-500 isolate overflow-hidden">
+    <div id="home" className="min-h-screen particles-bg grid-bg text-yellow-500 isolate overflow-hidden">
       {/* 装饰性光晕 */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -31,7 +35,7 @@ const Home = () => {
             <img 
               src= 'images/person-img-4.jpg'
               alt="self portrait" 
-              className="w-full h-full object-cover opacity-85 sm:opacity-95"
+              className="w-full h-full object-cover opacity-85 sm:opacity-95 brightness-110 contrast-105"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/10"></div>
@@ -50,16 +54,18 @@ const Home = () => {
               From serverless foundations to data-rich platforms, I partner with product teams to deliver cloud-native experiences that balance pace with precision. My toolkit spans AWS and Azure, with an emphasis on observability, automation, and tangible business outcomes.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl w-full">
               {focusHighlights.map((item, index) => (
                 <div 
                   key={item.title} 
                   className={`glass-card rounded-2xl px-4 py-3 fade-in-up fade-in-up-delay-${index + 2} flex items-center justify-center gap-3`}
                 >
-                  <span className="h-9 w-9 rounded-full border border-yellow-500/30 bg-yellow-500/10 grid place-items-center text-yellow-400">
-                    <i className={`${item.icon} text-lg`}></i>
+                  <span className="h-10 w-10 shrink-0 rounded-full border border-yellow-500/30 bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+                    <i className={`${item.icon} text-xl leading-none`}></i>
                   </span>
-                  <h3 className="special-font font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] text-gray-200">{item.title}</h3>
+                  <h3 className="special-font font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] text-gray-200 leading-tight">
+                    {item.title}
+                  </h3>
                 </div>
               ))}
             </div>
@@ -69,7 +75,7 @@ const Home = () => {
                 <img 
                   src='images/person-img-4.jpg'
                   alt="self portrait" 
-                  className="absolute inset-0 w-full h-full object-cover" 
+                  className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-105" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" aria-hidden="true"></div>
               </div>
