@@ -1,109 +1,122 @@
-import React, { useRef, useEffect } from 'react'
-import { useTheme } from '../context/ThemeContext';
+import React from 'react'
+import { Menu, X } from 'lucide-react'
+import { profile } from '../data'
 
-/* Navbar component with responsive hamburger menu and section highlighting */
 const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'aboutme', label: 'About Me' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
-];
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
+]
 
 const Navbar = () => {
-    useTheme();
-    const [activeSection, setActiveSection] = React.useState('home');
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const isScrollingRef = useRef(false);
+  const [activeSection, setActiveSection] = React.useState('home')
+  const [menuOpen, setMenuOpen] = React.useState(false)
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (isScrollingRef.current) return;
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
 
-            navLinks.forEach(({ id }) => {
-                const element = document.getElementById(id);
-                if (element) {
-                    const { top, bottom } = element.getBoundingClientRect();
-                    if (top <= 100 && bottom >= 100) {
-                        setActiveSection(id);
-                    }
-                }
-            });
-        };
+        if (visible?.target?.id) {
+          setActiveSection(visible.target.id)
+        }
+      },
+      { rootMargin: '-25% 0px -60% 0px', threshold: [0.1, 0.35, 0.6] },
+    )
 
-        const handleResize = () => {
-            if (window.innerWidth >= 640) {
-                setIsMenuOpen(false);
-            }
-        };
+    navLinks.forEach(({ id }) => {
+      const section = document.getElementById(id)
+      if (section) observer.observe(section)
+    })
 
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleResize);
+    return () => observer.disconnect()
+  }, [])
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+  React.useEffect(() => {
+    const closeOnResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false)
+    }
 
-    /* Handle navigation link clicks with smooth scrolling */
-    const handleNavClick = (e, sectionId) => {
-        e.preventDefault();
-        setActiveSection(sectionId);
-        setIsMenuOpen(false);
-        isScrollingRef.current = true;
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-            isScrollingRef.current = false;
-        }, 1000);
-    };
+    window.addEventListener('resize', closeOnResize)
+    return () => window.removeEventListener('resize', closeOnResize)
+  }, [])
 
-    const renderLink = ({ id, label }) => (
-        <a
-            key={id}
-            href={`#${id}`}
-            className={`normal-font relative group lg:text-lg md:text-base text-sm font-light tracking-wide transition-colors duration-300 ${activeSection === id ? 'text-blue-500 dark:text-yellow-500' : 'text-gray-600 dark:text-gray-200'}`}
-            onClick={(e) => handleNavClick(e, id)}
-        >
-            {label}
-            <span
-                className={`absolute -bottom-1 left-0 w-full h-[1px] transform scale-x-0 group-hover:scale-x-100 group-hover:origin-left origin-right transition duration-300 dark:bg-yellow-500 bg-blue-500 ${activeSection === id ? 'scale-x-100' : 'scale-x-0'}`}
-            ></span>
+  const handleNavClick = () => setMenuOpen(false)
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/72 backdrop-blur-xl">
+      <nav
+        aria-label="Primary navigation"
+        className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5"
+      >
+        <a href="#home" className="group flex items-center gap-3" onClick={handleNavClick}>
+          <span className="grid h-9 w-9 place-items-center rounded-xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-100">
+            JL
+          </span>
+          <span className="hidden text-sm font-semibold text-white sm:block">{profile.shortName}</span>
         </a>
-    );
 
-    return (
-        <div className='fixed inset-x-0 top-0 z-[120] w-full bg-gray-900/90 backdrop-blur-xl transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.3)]'>
-            <div className='w-full md:h-14 sm:h-16 h-18 flex items-center justify-between xl:px-36 lg:px-24 md:px-12 sm:px-6 px-4 py-3'>
-                <a href='#' className='normal-font md:text-2xl sm:text-xl text-lg text-gradient font-semibold hover:opacity-80 transition-opacity duration-200'>Jianhui (James) Ling</a>
-
-                <div className='hidden sm:flex items-center gap-x-8 lg:gap-x-12'>
-                    {navLinks.map(renderLink)}
-                </div>
-
-                <button
-                    type='button'
-                    className='sm:hidden inline-flex items-center justify-center text-3xl text-yellow-500 hover:text-yellow-400 transition-colors duration-300'
-                    onClick={() => setIsMenuOpen((prev) => !prev)}
-                    aria-label='Toggle navigation menu'
-                    aria-expanded={isMenuOpen}
-                >
-                    <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'}`}></i>
-                </button>
-            </div>
-
-            {isMenuOpen && (
-                <div className='sm:hidden flex flex-col gap-y-2 px-4 pb-4 bg-gray-900/95 backdrop-blur-xl border-t border-yellow-500/10'>
-                    {navLinks.map((link) => (
-                        <div key={link.id} className='py-2 border-b border-yellow-500/10 last:border-b-0'>
-                            {renderLink(link)}
-                        </div>
-                    ))}
-                </div>
-            )}
+        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                activeSection === link.id
+                  ? 'bg-cyan-300 text-slate-950'
+                  : 'text-slate-300 hover:bg-white/5 hover:text-white'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-    );
-};
 
-export default Navbar;
+        <a
+          href="#contact"
+          className="hidden rounded-full border border-cyan-300/35 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300 hover:text-slate-950 md:inline-flex"
+        >
+          Work together
+        </a>
+
+        <button
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-slate-100 md:hidden"
+        >
+          {menuOpen ? <X aria-hidden="true" size={20} /> : <Menu aria-hidden="true" size={20} />}
+        </button>
+      </nav>
+
+      {menuOpen && (
+        <div className="border-t border-white/10 bg-slate-950/96 px-5 py-4 md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={handleNavClick}
+                className={`rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                  activeSection === link.id
+                    ? 'bg-cyan-300 text-slate-950'
+                    : 'text-slate-200 hover:bg-white/5'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
+
+export default Navbar

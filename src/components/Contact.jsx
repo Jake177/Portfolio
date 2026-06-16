@@ -1,78 +1,90 @@
-import React from 'react'
-import NavigationCircles from './NavigationCircles';
+import { BriefcaseBusiness, Code2, Send } from 'lucide-react'
+import { profile } from '../data'
+import AnimatedSection, { AnimatedItem } from './AnimatedSection'
+import ButtonLink from './ButtonLink'
+import SectionHeader from './SectionHeader'
 
-const Contact = () => {
-  return (
-    <section
-      id="contact"
-      className="relative min-h-screen particles-bg grid-bg flex flex-col justify-center items-center px-4 py-16 sm:py-20 overflow-x-hidden"
-    >
-      {/* 装饰性光晕 */}
-      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+const iconMap = {
+  GitHub: Code2,
+  LinkedIn: BriefcaseBusiness,
+}
 
-      <div className="w-full max-w-3xl mx-auto text-center relative z-10">
-        <div className="fade-in-up">
-          <span className='normal-font uppercase tracking-[0.45em] text-xs sm:text-sm text-yellow-500/70 inline-block px-4 py-2 rounded-full border border-yellow-500/20 bg-yellow-500/5 mb-6'>Get in Touch</span>
-          <h2 className="text-4xl sm:text-5xl mb-6 special-font text-gradient">
-            Let's Connect
-          </h2>
-          {/* 装饰分割线 */}
-          <div className="animated-line w-32 rounded-full mx-auto mb-10"></div>
-        </div>
-
-        <div className="mb-8 sm:mb-12 fade-in-up fade-in-up-delay-1">
-          <div className="glass-card normal-font rounded-3xl px-6 sm:px-8 py-8">
-            <p className="text-base sm:text-lg leading-relaxed text-yellow-100/85 text-balance">
-              I'm currently collaborating on cloud platform initiatives and open to conversations about robust, high-impact delivery. Whether you are mapping a migration, need a trusted partner for platform evolution, or simply want to exchange ideas, I'd love to hear from you.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mx-auto normal-font fade-in-up fade-in-up-delay-2">
-            {/* GitHub */}
-            <a
-              href="https://github.com/Jake177"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 sm:w-[280px] px-5 py-4 rounded-2xl glass-card
-                         hover:border-yellow-500/50 transition-all duration-300
-                         min-h-[80px]"
-            >
-              <span className='h-12 w-12 rounded-full border border-yellow-500/30 bg-yellow-500/10 grid place-items-center text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-200'>
-                <i className="bx bxl-github text-2xl" />
-              </span>
-              <div className="flex-1 text-left leading-tight">
-                <span className="block text-xs uppercase tracking-wide text-yellow-500/70">GitHub</span>
-                <span className="font-semibold text-yellow-500 truncate">@Jake177</span>
-              </div>
-              <i className="bx bx-right-arrow-alt text-xl text-yellow-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 ml-auto" />
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/jianhui-l-387223106"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 sm:w-[280px] px-5 py-4 rounded-2xl glass-card
-                         hover:border-yellow-500/50 transition-all duration-300
-                         min-h-[80px]"
-            >
-              <span className='h-12 w-12 rounded-full border border-yellow-500/30 bg-yellow-500/10 grid place-items-center text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-200'>
-                <i className="bx bxl-linkedin-square text-2xl" />
-              </span>
-              <div className="flex-1 text-left leading-tight">
-                <span className="block text-xs uppercase tracking-wide text-yellow-500/70">LinkedIn</span>
-                <span className="font-semibold text-yellow-500 truncate">Jianhui Ling</span>
-              </div>
-              <i className="bx bx-right-arrow-alt text-xl text-yellow-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 ml-auto" />
-            </a>
-        </div>
+const ContactSection = () => (
+  <AnimatedSection id="contact" className="section-wrap">
+    <div className="section-inner grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div className="space-y-8">
+        <SectionHeader
+          eyebrow="Contact"
+          title="Have a workflow that should not be manual anymore?"
+          description="I am open to conversations about AI automation, internal tools, cloud integrations, and full-stack product delivery."
+        />
+        <AnimatedItem className="flex flex-wrap gap-3">
+          <ButtonLink href={`mailto:${profile.email}`}>Email Me</ButtonLink>
+          {profile.links.map((link) => {
+            const Icon = iconMap[link.label]
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-cyan-300/50 hover:bg-white/5 hover:text-white"
+              >
+                {Icon && <Icon aria-hidden="true" size={18} />}
+                {link.label}
+              </a>
+            )
+          })}
+        </AnimatedItem>
       </div>
 
-      <NavigationCircles section="contact" />
-    </section>
-  );
-};
+      <AnimatedItem className="glass-panel rounded-[1.75rem] p-6 sm:p-8">
+        <form className="space-y-5" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <label className="grid gap-2 text-sm font-semibold text-slate-200">
+              Name
+              <input
+                type="text"
+                name="name"
+                autoComplete="name"
+                className="min-h-12 rounded-2xl border border-white/10 bg-slate-950/60 px-4 text-slate-100 outline-none transition focus:border-cyan-300"
+                placeholder="Your name"
+              />
+            </label>
+            <label className="grid gap-2 text-sm font-semibold text-slate-200">
+              Email
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                className="min-h-12 rounded-2xl border border-white/10 bg-slate-950/60 px-4 text-slate-100 outline-none transition focus:border-cyan-300"
+                placeholder="you@example.com"
+              />
+            </label>
+          </div>
+          <label className="grid gap-2 text-sm font-semibold text-slate-200">
+            Project or workflow
+            <textarea
+              name="message"
+              rows="5"
+              className="rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-300"
+              placeholder="Tell me what process, tool, or automation you want to improve."
+            />
+          </label>
+          <button
+            type="submit"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+          >
+            <Send aria-hidden="true" size={17} />
+            Draft message
+          </button>
+          <p className="text-xs leading-6 text-slate-500">
+            This form is a UI preview. For now, please use email, GitHub, or LinkedIn to get in touch.
+          </p>
+        </form>
+      </AnimatedItem>
+    </div>
+  </AnimatedSection>
+)
 
-export default Contact;
+export default ContactSection

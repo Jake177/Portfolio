@@ -1,38 +1,31 @@
-import React from 'react'
-import Home from './components/Home'
+import Layout from './components/Layout'
 import Navbar from './components/Navbar'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
-import Loader from './components/Loader'
-import { ThemeProvider } from './context/ThemeContext'
-import Projects from './components/Projects'
-import AboutMe from './components/AboutMe'
+import HeroSection from './components/Home'
+import AboutSection from './components/AboutMe'
+import ServicesSection from './components/ServicesSection'
+import ProjectsSection, { CaseStudiesSection } from './components/Projects'
+import SkillsSection from './components/Skills'
+import ExperienceTimeline from './components/ExperienceTimeline'
+import ContactSection from './components/Contact'
+import Footer from './components/Footer'
+import BackToTopButton from './components/NavigationCircles'
 
-const App = () => {
-  const [isLoading,setIsLoading] = React.useState(true);
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    },2000);
-    return () => clearTimeout(timer);
-  }, []);
-  return (
-    <ThemeProvider>
-  <div className='min-h-screen gradient-bg text-yellow-500 transition-colors duration-300'>
-        <Loader isLoading={isLoading}/>
-        {!isLoading && (
-        <>
-  <Navbar />
-  <Home />
-        <AboutMe />
-        <Skills />
-        <Projects />
-        <Contact />
-        </>
-        )}
-      </div>
-    </ThemeProvider>
-  )
-}
+const App = () => (
+  <Layout>
+    <Navbar />
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <ProjectsSection />
+      <CaseStudiesSection />
+      <SkillsSection />
+      <ExperienceTimeline />
+      <ContactSection />
+    </main>
+    <Footer />
+    <BackToTopButton />
+  </Layout>
+)
 
 export default App

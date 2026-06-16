@@ -1,129 +1,116 @@
-import React from 'react'
-import NavigationActivationCircles from './NavigationCircles'
+import { Layers3 } from 'lucide-react'
+import { caseStudies, projects } from '../data'
+import AnimatedSection, { AnimatedItem } from './AnimatedSection'
+import ButtonLink from './ButtonLink'
+import SectionHeader from './SectionHeader'
 
-const projects = [
-  {
-    title: 'PinHaoYun',
-    subtitle: 'Cloud Video storage solution',
-    summary:
-      'Serverless upload and lifecycle management platform that gives internal teams a secure vault for critical media assets.',
-    impact:
-      'Automated ingestion and tiered storage policies reduced manual handling by 80% while keeping operating costs predictable.',
-    stack: ['AWS Lambda', 'S3', 'DynamoDB', 'API Gateway', 'CloudWatch'],
-    link: 'https://main.dfajjdq9ocxzi.amplifyapp.com/',
-    icon: 'bx bx-cloud-upload'
-  },
-  {
-    title: 'RipOffRoo',
-    subtitle: 'Scam insights for seniors',
-    summary:
-      'Vue + Node.js web experience that surfaces likely scam patterns for senior Australians, powered by a custom ML classifier.',
-    impact:
-      'Delivered a trusted channel for fraud reporting and triage, cutting response time from days to hours for partner agencies.',
-    stack: ['Vue', 'Node.js', 'Express', 'ML Pipeline', 'MongoDB'],
-    link: 'https://github.com/hassan-akbar/FIT5120',
-    icon: 'bx bx-shield-quarter'
-  },
-  {
-    title: 'PlaySquad',
-    subtitle: 'Campus social launchpad',
-    summary:
-      'Native Android app that lets students publish, discover, and RSVP to campus events with real-time updates and chat.',
-    impact:
-      'Backed by Kotlin + Firebase, the platform supported >2k signups in pilot with zero downtime during peak onboarding weeks.',
-    stack: ['Kotlin', 'Jetpack Compose', 'Firebase', 'REST APIs'],
-    link: 'https://github.com/Jake177/PlaySquad',
-    icon: 'bx bx-group'
-  },
-  {
-    title: 'Machine Learning Experiments',
-    subtitle: 'Vision, text and gameplay analytics',
-    summary:
-      'A suite of ML prototypes, from number plate detection with OpenCV to email spam filtering and LoL win-rate projections.',
-    impact:
-      'Proved out lightweight models that integrate into existing ops workflows without costly re-platforming.',
-    stack: ['Python', 'OpenCV', 'scikit-learn', 'Pandas'],
-    link: 'https://github.com/Jake177/Machine-Learning',
-    icon: 'bx bx-brain'
-  },
-  {
-    title: 'Agora Classroom',
-    subtitle: 'Real-time learning rooms',
-    summary:
-      'Web-based classroom environment using Agora SDK for live video, whiteboarding, and collaborative chat experiences.',
-    impact:
-      'Enabled educators to host multi-track sessions with latency under 250ms, sustaining engagement across remote cohorts.',
-    stack: ['Agora SDK', 'HTML', 'CSS', 'Socket.io'],
-    link: 'https://github.com/Jake177/Agora-Classroom',
-    icon: 'bx bx-video'
-  }
-]
-
-const Projects = () => {
-  return (
-    <section id='projects' className='relative min-h-screen w-full particles-bg text-yellow-500 px-6 py-24 sm:py-28 isolate'>
-      {/* 装饰性光晕 */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className='max-w-6xl mx-auto flex flex-col gap-12'>
-        <header className='space-y-4 max-w-3xl fade-in-up'>
-          <span className='normal-font uppercase tracking-[0.45em] text-xs sm:text-sm text-yellow-500/70 inline-block px-4 py-2 rounded-full border border-yellow-500/20 bg-yellow-500/5'>Projects</span>
-          <h2 className='special-font text-4xl sm:text-5xl leading-tight text-gradient'>Cloud-first shipping, across products and platforms.</h2>
-          <p className='normal-font text-base sm:text-lg text-yellow-500/80 leading-relaxed'>A look at the systems and experiences I have helped architect—from serverless vaults to ML-guided insights.</p>
-          {/* 装饰分割线 */}
-          <div className="animated-line w-32 rounded-full mt-4"></div>
-        </header>
-
-        <div className='space-y-8'>
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`project-card relative glass-card rounded-3xl px-6 sm:px-8 py-8 sm:py-10 fade-in-up fade-in-up-delay-${Math.min(index + 1, 5)}`}
-            >
-              <div className='flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-10'>
-                <div className='max-w-3xl space-y-4'>
-                  <div className='flex items-center gap-4'>
-                    <span className='h-12 w-12 rounded-full border border-yellow-500/30 bg-yellow-500/10 grid place-items-center text-yellow-400'>
-                      <i className={`${project.icon} text-2xl`}></i>
-                    </span>
-                    <div>
-                      <h3 className='special-font text-2xl sm:text-3xl leading-tight text-gradient'>{project.title}</h3>
-                      <p className='normal-font text-sm sm:text-base text-yellow-500/75 uppercase tracking-[0.3em]'>{project.subtitle}</p>
-                    </div>
-                  </div>
-                  <p className='normal-font text-base text-gray-200 leading-relaxed'>{project.summary}</p>
-                </div>
-
-                <div className='normal-font flex flex-col gap-4 text-sm sm:text-base text-yellow-500/75 lg:w-[280px] lg:shrink-0'>
-                  <div>
-                    <span className='block uppercase tracking-[0.35em] text-xs text-yellow-500/70 mb-2'>Stack</span>
-                    <div className='flex flex-wrap gap-2'>
-                      {project.stack.map((item) => (
-                        <span key={item} className='px-3 py-1 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-xs tracking-wide hover:bg-yellow-500/20 hover:border-yellow-500/50 transition-all duration-200'>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <a
-                    href={project.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='inline-flex items-center gap-2 text-yellow-500/90 hover:text-yellow-400 transition-colors duration-200 group'
-                  >
-                    <span className='group-hover:underline'>View Project</span>
-                    <i className='bx bx-right-top-arrow-circle text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200'></i>
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
+const ProjectCard = ({ project, featured = false }) => (
+  <AnimatedItem
+    as="article"
+    className={`glass-panel rounded-[1.75rem] p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/35 ${
+      featured ? 'lg:col-span-2' : ''
+    }`}
+  >
+    <div className="flex h-full flex-col gap-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200/75">
+            {project.subtitle}
+          </p>
+          <h3 className="mt-2 text-2xl font-semibold text-white">{project.title}</h3>
         </div>
-
-        <NavigationActivationCircles section='projects' />
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-violet-300/10 text-violet-100 ring-1 ring-violet-300/20">
+          <Layers3 aria-hidden="true" size={20} />
+        </span>
       </div>
-    </section>
-  )
-}
 
-export default Projects
+      <div className="grid gap-4 text-sm leading-7 text-slate-300 sm:grid-cols-2">
+        <div>
+          <p className="mb-1 font-semibold text-white">Problem</p>
+          <p>{project.problem}</p>
+        </div>
+        <div>
+          <p className="mb-1 font-semibold text-white">Solution</p>
+          <p>{project.solution}</p>
+        </div>
+      </div>
+
+      <div>
+        <p className="mb-2 text-sm font-semibold text-white">Business value</p>
+        <p className="text-sm leading-7 text-slate-300">{project.impact}</p>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {project.stack.map((item) => (
+          <span key={item} className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1 text-xs text-slate-300">
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <ul className="grid gap-2 text-sm text-slate-400 sm:grid-cols-2">
+          {project.features.slice(0, 4).map((feature) => (
+            <li key={feature}>• {feature}</li>
+          ))}
+        </ul>
+        <ButtonLink href={project.link} variant="ghost" external className="shrink-0">
+          {project.linkLabel}
+        </ButtonLink>
+      </div>
+    </div>
+  </AnimatedItem>
+)
+
+const ProjectsSection = () => (
+  <AnimatedSection id="projects" className="section-wrap">
+    <div className="section-inner space-y-12">
+      <SectionHeader
+        eyebrow="Featured Projects"
+        title="Practical systems that connect cloud, data, users, and workflow automation."
+        description="Each project is framed around the business process it improves: what was manual, what changed, and what value the software made possible."
+      />
+
+      <div className="grid gap-5 lg:grid-cols-2">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} featured={index === 0} />
+        ))}
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
+export const CaseStudiesSection = () => (
+  <AnimatedSection id="case-studies" className="section-wrap pt-0">
+    <div className="section-inner space-y-10">
+      <SectionHeader
+        eyebrow="Case Studies"
+        title="Business-focused delivery patterns from selected projects."
+        description="A closer look at how the projects translate problems into software workflows and measurable operating improvements."
+      />
+
+      <div className="grid gap-4 lg:grid-cols-3">
+        {caseStudies.map((study) => (
+          <AnimatedItem key={study.title} as="article" className="glass-panel rounded-3xl p-6">
+            <p className="text-sm font-semibold text-cyan-200">{study.project}</p>
+            <h3 className="mt-2 text-xl font-semibold text-white">{study.title}</h3>
+            <div className="mt-5 space-y-4 text-sm leading-7 text-slate-300">
+              <p><span className="font-semibold text-white">Problem: </span>{study.problem}</p>
+              <p><span className="font-semibold text-white">Solution: </span>{study.solution}</p>
+              <p><span className="font-semibold text-white">Impact: </span>{study.impact}</p>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {study.stack.map((item) => (
+                <span key={item} className="rounded-full bg-cyan-300/8 px-3 py-1 text-xs text-cyan-100">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </AnimatedItem>
+        ))}
+      </div>
+    </div>
+  </AnimatedSection>
+)
+
+export default ProjectsSection
