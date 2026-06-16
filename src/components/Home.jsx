@@ -63,7 +63,7 @@ const HeroSection = () => {
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-200/80">
                   Portfolio signal
                 </p>
-                <h2 className="mt-2 text-xl font-semibold text-white">{profile.shortName}</h2>
+                <p className="mt-2 text-xl font-semibold text-white">{profile.shortName}</p>
                 <p className="mt-2 text-sm leading-6 text-slate-400">{profile.positioning}</p>
               </div>
             </div>
@@ -101,7 +101,7 @@ const HeroSection = () => {
                           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200/75">
                             {card.label}
                           </p>
-                          <h2 className="mt-1 text-base font-semibold text-white">{card.title}</h2>
+                          <h3 className="mt-1 text-base font-semibold text-white">{card.title}</h3>
                           <p className="mt-1 text-sm leading-6 text-slate-400">{card.detail}</p>
                         </div>
                       </div>
