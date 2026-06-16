@@ -1,38 +1,37 @@
 import React from 'react'
+import { ArrowUp } from 'lucide-react'
 
-const NavigationCircles = () => {
-    const [visible, setVisible] = React.useState(false)
+const BackToTopButton = () => {
+  const [visible, setVisible] = React.useState(false)
 
-    React.useEffect(() => {
-        const onScroll = () => {
-            setVisible(window.scrollY > 200)
-        }
-        window.addEventListener('scroll', onScroll, { passive: true })
-        onScroll()
-        return () => window.removeEventListener('scroll', onScroll)
-    }, [])
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+  React.useEffect(() => {
+    const onScroll = () => {
+      setVisible(window.scrollY > 420)
     }
 
-    return (
-        <button
-            type="button"
-            aria-label="Back to top"
-            onClick={scrollToTop}
-            className={
-                `fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full flex items-center justify-center shadow-lg 
-                 bg-blue-500 text-white hover:bg-blue-600 active:scale-95 
-                 dark:bg-yellow-500 dark:text-gray-900 dark:hover:bg-yellow-400 
-                 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 
-                 focus:ring-blue-400 dark:focus:ring-yellow-500 
-                 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 pointer-events-none translate-y-4'}`
-            }
-        >
-            <i className="bx bx-chevron-up text-2xl" />
-        </button>
-    )
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
+  }
+
+  return (
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={scrollToTop}
+      className={`fixed bottom-5 right-5 z-50 grid h-12 w-12 place-items-center rounded-full border border-cyan-300/30 bg-slate-950/80 text-cyan-100 shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur transition duration-200 hover:border-cyan-200 hover:bg-cyan-300 hover:text-slate-950 ${
+        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
+      }`}
+    >
+      <ArrowUp aria-hidden="true" size={20} strokeWidth={2.4} />
+    </button>
+  )
 }
 
-export default NavigationCircles
+export default BackToTopButton

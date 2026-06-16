@@ -1,92 +1,120 @@
-import React from "react";
-import NavigationCircles from "./NavigationCircles";
+import { motion, useReducedMotion } from 'framer-motion'
+import { Bot, DatabaseZap, FileText, Sparkles } from 'lucide-react'
+import { profile } from '../data'
+import AnimatedSection, { AnimatedItem } from './AnimatedSection'
+import ButtonLink from './ButtonLink'
 
-const focusHighlights = [
-  {
-    title: "Cloud & Serverless",
-    icon: "bx bx-cloud"
-  },
-  {
-    title: "Full-Stack Engineering",
-    icon: "bx bx-code-alt"
-  },
-  {
-    title: "Data & Intelligence",
-    icon: "bx bx-data"
-  },
-  {
-    title: "DevOps & Automation",
-    icon: "bx bx-cog"
-  }
-];
+const workflowIcons = [Bot, DatabaseZap, FileText]
+const portraitSrc = `${import.meta.env.BASE_URL}images/person-img-4.jpg`
+const FloatingCard = motion.div
 
+const HeroSection = () => {
+  const shouldReduceMotion = useReducedMotion()
 
-
-const Home = () => {
   return (
-    <div id="home" className="min-h-screen particles-bg grid-bg text-yellow-500 isolate overflow-hidden">
-      {/* 装饰性光晕 */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="home" className="section-wrap flex min-h-screen items-center pt-28">
+      <div className="section-inner grid items-center gap-14 lg:grid-cols-[1.04fr_0.96fr]">
+        <AnimatedSection className="space-y-8">
+          <AnimatedItem className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/8 px-4 py-2 text-sm font-semibold text-cyan-100">
+            <Sparkles aria-hidden="true" size={16} />
+            {profile.role} for automation-first teams
+          </AnimatedItem>
 
-      <section className="relative w-full flex flex-col items-center justify-center px-6 pt-28 pb-24 sm:pt-32 md:pt-36">
-        <div className="absolute inset-0 hidden sm:block">
-          <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 lg:w-1/2 overflow-hidden">
-            <img 
-              src= 'images/person-img-4.jpg'
-              alt="self portrait" 
-              className="w-full h-full object-cover opacity-85 sm:opacity-95 brightness-110 contrast-105"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/10"></div>
-        </div>
-
-        <div className="relative max-w-6xl w-full grid lg:grid-cols-[1fr,0.9fr] gap-10 lg:gap-16 items-start">
-          <div className="space-y-10">
-            <div className="space-y-4 max-w-2xl fade-in-up">
-              <span className="normal-font uppercase tracking-[0.45em] text-xs sm:text-sm text-yellow-500/70 inline-block px-4 py-2 rounded-full border border-yellow-500/20 bg-yellow-500/5">Cloud Solution Engineer</span>
-              <h1 className="special-font text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight text-gradient">
-                Jianhui (James) Ling
-              </h1>
-            </div>
-
-            <p className="normal-font text-base sm:text-lg text-yellow-500/85 max-w-xl leading-relaxed fade-in-up fade-in-up-delay-1">
-              From serverless foundations to data-rich platforms, I partner with product teams to deliver cloud-native experiences that balance pace with precision. My toolkit spans AWS and Azure, with an emphasis on observability, automation, and tangible business outcomes.
+          <AnimatedItem className="space-y-6">
+            <h1 className="gradient-text text-balance text-4xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
+              {profile.headline}
+            </h1>
+            <p className="max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              {profile.subheadline}
             </p>
+          </AnimatedItem>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl w-full">
-              {focusHighlights.map((item, index) => (
-                <div 
-                  key={item.title} 
-                  className={`glass-card rounded-2xl px-4 py-3 fade-in-up fade-in-up-delay-${index + 2} flex items-center justify-center gap-3`}
-                >
-                  <span className="h-10 w-10 shrink-0 rounded-full border border-yellow-500/30 bg-yellow-500/10 flex items-center justify-center text-yellow-400">
-                    <i className={`${item.icon} text-xl leading-none`}></i>
-                  </span>
-                  <h3 className="special-font font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] text-gray-200 leading-tight">
-                    {item.title}
-                  </h3>
-                </div>
-              ))}
-            </div>
+          <AnimatedItem className="flex flex-col gap-3 sm:flex-row">
+            {profile.ctas.map((cta) => (
+              <ButtonLink key={cta.href} href={cta.href} variant={cta.variant}>
+                {cta.label}
+              </ButtonLink>
+            ))}
+          </AnimatedItem>
 
-            <div className="sm:hidden w-full mt-10 fade-in-up fade-in-up-delay-5">
-              <div className="relative w-full aspect-[3/4] rounded-[32px] border border-yellow-500/25 overflow-hidden shadow-[0_0_60px_rgba(234,179,8,0.2)]">
-                <img 
-                  src='images/person-img-4.jpg'
-                  alt="self portrait" 
-                  className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-105" 
+          <AnimatedItem className="grid gap-3 sm:grid-cols-3">
+            {profile.stats.map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
+                <p className="text-2xl font-semibold text-white">{stat.value}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-400">{stat.label}</p>
+              </div>
+            ))}
+          </AnimatedItem>
+        </AnimatedSection>
+
+        <AnimatedSection className="relative">
+          <div className="absolute -inset-8 rounded-full bg-cyan-300/10 blur-3xl" aria-hidden="true" />
+          <div className="glass-panel soft-glow relative overflow-hidden rounded-[2rem] p-5 sm:p-6">
+            <div className="accent-line mb-5" />
+            <div className="mb-5 grid gap-4 sm:grid-cols-[0.74fr_1fr] sm:items-center">
+              <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70">
+                <img
+                  src={portraitSrc}
+                  alt="Jianhui Ling portrait"
+                  className="aspect-[4/5] h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" aria-hidden="true"></div>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-200/80">
+                  Portfolio signal
+                </p>
+                <p className="mt-2 text-xl font-semibold text-white">{profile.shortName}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">{profile.positioning}</p>
+              </div>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-5">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold text-cyan-100">Automation Command Center</p>
+                  <p className="text-xs text-slate-400">AI agents, APIs, and internal workflows</p>
+                </div>
+                <span className="rounded-full bg-emerald-400/12 px-3 py-1 text-xs font-semibold text-emerald-200">
+                  Live
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                {profile.workflowCards.map((card, index) => {
+                  const Icon = workflowIcons[index]
+                  return (
+                    <FloatingCard
+                      key={card.title}
+                      animate={shouldReduceMotion ? undefined : { y: [0, -6, 0] }}
+                      transition={{
+                        duration: 5 + index,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: index * 0.35,
+                      }}
+                      className="rounded-2xl border border-white/10 bg-white/[0.045] p-4 transition-transform duration-300 hover:-translate-y-1"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-cyan-300/12 text-cyan-100">
+                          {Icon && <Icon aria-hidden="true" size={19} />}
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200/75">
+                            {card.label}
+                          </p>
+                          <h3 className="mt-1 text-base font-semibold text-white">{card.title}</h3>
+                          <p className="mt-1 text-sm leading-6 text-slate-400">{card.detail}</p>
+                        </div>
+                      </div>
+                    </FloatingCard>
+                  )
+                })}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
 
-      <NavigationCircles section="home" />
-    </div>
-  );
-};
-
-export default Home;
+export default HeroSection

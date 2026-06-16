@@ -1,56 +1,51 @@
 <div align="center">
-	<h1>Personal Portfolio (React + Vite + Tailwind CSS)</h1>
-	<p>Responsive, theme‑aware developer portfolio with animated intro, skill cards, dynamic story reveal, and back‑to‑top interaction.</p>
+  <h1>Personal Portfolio (React + Vite + Tailwind CSS)</h1>
+  <p>Premium single-page portfolio for AI workflow automation, internal tools, cloud solutions, and full-stack software engineering.</p>
 </div>
 
-## 🚀 Live Demo
+## Live Demo
 
 https://jake177.github.io/Portfolio/
 
-## ✨ Features
+## Features
 
-- ⚡ Vite + React 19 (SWC) for fast HMR
-- 🎨 Tailwind CSS v4 utility styling (light / dark mode toggle via context)
-- 🌓 Persistent dark mode ready (context hook pattern in place)
-- 👋 Animated hero headline cycling through profession keywords
-- 🖼 Hover letters reveal associated images ("Hello" sequence)
-- 📖 Expandable "Read My Story" panel with smooth max-height + opacity transition
-- 🗂 Modular skill cards (icon + title inline, scrollable description)
-- ⬆️ Floating Back‑to‑Top button (appears after scroll)
-- 🔗 Contact section with styled external profile links (GitHub & LinkedIn)
-- 🧩 Centralized data (`src/data/index.js`) for easy content edits
-- ♿ Accessible focus styles & semantic HTML sections
+- Vite + React 19 with SWC
+- Tailwind CSS v4 styling with a dark SaaS/AI visual system
+- Framer Motion section reveals, staggered cards, and reduced-motion support
+- lucide-react icons
+- Centralized portfolio data under `src/data`
+- Responsive sections for hero, about, services, projects, case studies, skills, experience, and contact
+- SEO metadata for portfolio positioning
+- Accessible navigation, focus states, headings, and contact links
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Tools |
-|-------|-------|
+| --- | --- |
 | Framework | React 19 + Vite |
-| Styling | Tailwind CSS 4, custom utility classes |
-| Icons | Boxicons (CDN) |
-| State / Context | React Context for theme (`ThemeProvider`) |
+| Styling | Tailwind CSS 4, custom CSS tokens |
+| Motion | Framer Motion |
+| Icons | lucide-react |
 | Build | ES Modules, SWC transform |
 
-## command
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-default：`http://localhost:5173`
+Default local URL: `http://localhost:5173`
 
-## production/preview
+## Production
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## deploy
+## Deploy
 
 ```bash
 npm run build
 ```
-
-
