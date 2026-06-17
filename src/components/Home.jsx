@@ -51,20 +51,13 @@ const HeroSection = () => {
           <div className="absolute -inset-8 rounded-full bg-cyan-300/10 blur-3xl" aria-hidden="true" />
           <div className="glass-panel soft-glow relative overflow-hidden rounded-[2rem] p-5 sm:p-6">
             <div className="accent-line mb-5" />
-            <div className="mb-5 grid gap-4 sm:grid-cols-[0.74fr_1fr] sm:items-center">
+            <div className="mb-5">
               <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70">
                 <img
                   src={portraitSrc}
                   alt="Jianhui Ling portrait"
-                  className="aspect-[4/5] h-full w-full object-cover"
+                  className="aspect-[5/4] h-full w-full object-cover object-center"
                 />
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-200/80">
-                  Portfolio signal
-                </p>
-                <p className="mt-2 text-xl font-semibold text-white">{profile.shortName}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-400">{profile.positioning}</p>
               </div>
             </div>
             <div className="rounded-3xl border border-white/10 bg-slate-950/70 p-5">

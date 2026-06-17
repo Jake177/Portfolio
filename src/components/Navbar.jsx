@@ -54,10 +54,7 @@ const Navbar = () => {
         aria-label="Primary navigation"
         className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5"
       >
-        <a href="#home" className="group flex items-center gap-3" onClick={handleNavClick}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-100">
-            JL
-          </span>
+        <a href="#home" className="group flex items-center" onClick={handleNavClick}>
           <span className="hidden text-sm font-semibold text-white sm:block">{profile.shortName}</span>
         </a>
 
