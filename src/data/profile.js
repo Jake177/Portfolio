@@ -31,6 +31,7 @@ export const profile = {
     },
   ],
   stats: [
+    { value: '2+', label: 'Years software engineer experience' },
     { value: '2+', label: 'Years AWS experience' },
     { value: '80%', label: 'Manual handling reduced in cloud media workflow' },
     { value: '100+', label: 'Concurrent users supported in serverless prototype' },
