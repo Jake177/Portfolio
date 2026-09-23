@@ -24,7 +24,7 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <h1 id="hero-title">Hey, I’m<br /><span className="name-line">James<span className="pink-period">.</span></span></h1>
-            <p className="hero-statement">I build useful software<br className="desktop-break" /> with AI.</p>
+            <p className="hero-statement">I build amazing things<br className="desktop-break" /> with AI.</p>
             <p className="hero-bio">{profile.role} at<br /><strong>{profile.company}.</strong></p>
             <nav className="hero-links" aria-label="Connect with James">
               <a className="hello-button" href={`mailto:${profile.email}`}>Say hello <Arrow /></a>

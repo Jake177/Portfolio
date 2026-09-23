@@ -7,11 +7,11 @@ const mono = localFont({ src: './fonts/ibm-plex-mono-latin.woff2', weight: '400'
 
 export const metadata: Metadata = {
   title: 'James Ling — Vibe Coder',
-  description: 'Hey, I’m James. I build useful software with AI. Vibe Coder at StarX Technology Solutions, based in Melbourne, Australia.',
+  description: 'Hey, I’m James. I build amazing things with AI. Vibe Coder at StarX Technology Solutions, based in Melbourne, Australia.',
   metadataBase: new URL('https://jake177.github.io/Portfolio/'),
   openGraph: {
     title: 'James Ling — Vibe Coder',
-    description: 'Useful software. Human ideas. A little help from AI.',
+    description: 'I build amazing things with AI.',
     type: 'website',
     locale: 'en_AU',
   },
