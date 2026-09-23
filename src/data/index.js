@@ -1,5 +1,0 @@
-export * from './profile'
-export * from './services'
-export * from './projects'
-export * from './skills'
-export * from './experience'

@@ -1,51 +1,49 @@
-<div align="center">
-  <h1>Personal Portfolio (React + Vite + Tailwind CSS)</h1>
-  <p>Premium single-page portfolio for AI workflow automation, internal tools, cloud solutions, and full-stack software engineering.</p>
-</div>
+# James Ling — personal website
 
-## Live Demo
+A concise personal homepage for James, Vibe Coder at StarX Technology Solutions.
+Pink Molly styling combines warm paper, oversized type, a retro window, and an interactive pink particle sculpture. No client projects or case studies are displayed.
 
-https://jake177.github.io/Portfolio/
+## Stack
 
-## Features
+- Next.js 16.3.6, App Router, React 19.3, TypeScript
+- Tailwind CSS 4 and CSS design tokens
+- Native Canvas 2D for particles; no animation or 3D runtime dependency
+- Static export for GitHub Pages
 
-- Vite + React 19 with SWC
-- Tailwind CSS v4 styling with a dark SaaS/AI visual system
-- Framer Motion section reveals, staggered cards, and reduced-motion support
-- lucide-react icons
-- Centralized portfolio data under `src/data`
-- Responsive sections for hero, about, services, projects, case studies, skills, experience, and contact
-- SEO metadata for portfolio positioning
-- Accessible navigation, focus states, headings, and contact links
+## Local development
 
-## Tech Stack
+Use Node.js 24+ and npm:
 
-| Layer | Tools |
-| --- | --- |
-| Framework | React 19 + Vite |
-| Styling | Tailwind CSS 4, custom CSS tokens |
-| Motion | Framer Motion |
-| Icons | lucide-react |
-| Build | ES Modules, SWC transform |
-
-## Development
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Default local URL: `http://localhost:5173`
+Open http://127.0.0.1:3000. Fonts and their open-source licenses live in `src/app/fonts/` and are served locally using `next/font/local`; builds do not contact Google Fonts.
 
-## Production
-
-```bash
-npm run build
-npm run preview
-```
-
-## Deploy
-
-```bash
+```sh
+npm run lint
+npm run typecheck
+npm test
 npm run build
 ```
+
+`npm run build` exports the site to `out/`. Serve this directory with a static HTTP server to preview production; `next start` does not serve static exports.
+
+## Deployment
+
+The existing GitHub Pages workflow builds with `NEXT_PUBLIC_BASE_PATH=/Portfolio` (derived from the repository name), checks the code, and deploys `out/` when changes are pushed to `main`. Local development uses `/`.
+
+For root-domain hosting, leave `NEXT_PUBLIC_BASE_PATH` unset. If the public URL changes, also update `metadataBase` in `src/app/layout.tsx`. No deployment is performed by local builds.
+
+## Editing
+
+- Identity and contact links: `src/data/profile.ts`
+- Homepage copy and layout: `src/app/page.tsx`
+- Colors, typography and responsive styles: `src/app/globals.css`
+- Particle animation and controls: `src/components/ParticlePlayground.tsx`
+- Deterministic particle geometry: `src/lib/particles.ts`
+
+The artwork supports pause/resume, respects changes to reduced-motion preferences, suspends animation offscreen and in hidden tabs, and lowers its particle count on touch devices. A local SVG poster remains available without JavaScript or Canvas. Introductory text and contact links are included in the static HTML.
+
+This iteration covers the homepage and Next.js migration. Older redesign documents in `docs/superpowers/` describe the previous Vite implementation, not the current design.
