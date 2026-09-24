@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import Icon from './Icon'
 import { createParticles, particleColor, projectParticle } from '../lib/particles'
 
 const motionQuery = '(prefers-reduced-motion: reduce)'
@@ -138,7 +139,7 @@ export default function ParticlePlayground() {
   return (
     <section className="playground" aria-label="Interactive pink particle artwork">
       <div className="window-heading">
-        <span className="window-mark" aria-hidden="true">✳</span>
+        <span className="window-mark" aria-hidden="true"><Icon name="asterisk" /></span>
         <span>A LITTLE EXPERIMENT</span>
         <span className="window-stripes" aria-hidden="true" />
         <span aria-hidden="true">01</span>
@@ -156,7 +157,7 @@ export default function ParticlePlayground() {
         />
         <canvas ref={canvasRef} aria-hidden="true" className="particle-canvas" />
         <span className="artwork-label" aria-hidden="true">IDEAS IN MOTION</span>
-        <span className="artwork-cross" aria-hidden="true">+</span>
+        <span className="artwork-cross" aria-hidden="true"><Icon name="plus" /></span>
       </div>
       <div className="window-footer">
         <span className="pointer-hint">{reducedMotion ? 'A moment of stillness.' : 'A little curiosity goes a long way.'}</span>
@@ -168,7 +169,7 @@ export default function ParticlePlayground() {
           disabled={reducedMotion}
           onClick={togglePlayback}
         >
-          <span aria-hidden="true">{paused || reducedMotion ? '▷' : 'Ⅱ'}</span>
+          <span aria-hidden="true"><Icon name={paused || reducedMotion ? 'play' : 'pause'} /></span>
           {reducedMotion ? 'Motion off' : paused ? 'Play' : 'Pause'}
         </button>
       </div>

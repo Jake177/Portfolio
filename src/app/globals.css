@@ -14,6 +14,7 @@ html { background: var(--paper); scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); font-family: var(--font-sans), Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
+.icon { display: inline-block; width: 1em; height: 1em; flex-shrink: 0; vertical-align: middle; }
 button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { color: var(--ink); background: var(--pink); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }

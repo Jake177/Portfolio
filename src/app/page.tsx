@@ -1,8 +1,9 @@
 import ParticlePlayground from '../components/ParticlePlayground'
+import Icon from '../components/Icon'
 import { profile } from '../data/profile'
 
-function Arrow({ diagonal = true }: { diagonal?: boolean }) {
-  return <span aria-hidden="true">{diagonal ? '↗' : '→'}</span>
+function Arrow() {
+  return <span aria-hidden="true"><Icon name="arrow" /></span>
 }
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header">
         <a className="wordmark" href="#main" aria-label={`${profile.name}, home`}>
-          james<span className="brand-star" aria-hidden="true">✳</span>
+          james<span className="brand-star" aria-hidden="true"><Icon name="asterisk" /></span>
         </a>
         <p className="header-note">A LITTLE CORNER OF THE INTERNET</p>
         <a className="header-contact" href={`mailto:${profile.email}`}>
@@ -33,9 +34,9 @@ export default function Home() {
             </nav>
           </div>
           <div className="hero-art">
-            <div className="art-caption"><span className="caption-line" /><span>A WORK IN PLAY.</span><span aria-hidden="true">↙</span></div>
+            <div className="art-caption"><span className="caption-line" /><span>A WORK IN PLAY.</span><span aria-hidden="true"><Icon name="arrow-down" /></span></div>
             <ParticlePlayground />
-            <div className="art-note"><span aria-hidden="true">✳</span> A human behind the keyboard. Always.</div>
+            <div className="art-note"><span aria-hidden="true"><Icon name="asterisk" /></span> A human behind the keyboard. Always.</div>
           </div>
         </section>
 
@@ -46,7 +47,7 @@ export default function Home() {
         </aside>
       </main>
 
-      <footer className="site-footer"><span>© {new Date().getFullYear()} {profile.name}</span><span>A little curiosity. A lot of possibility. <span className="footer-star" aria-hidden="true">✳</span></span></footer>
+      <footer className="site-footer"><span>© {new Date().getFullYear()} {profile.name}</span><span>A little curiosity. A lot of possibility. <span className="footer-star" aria-hidden="true"><Icon name="asterisk" /></span></span></footer>
     </div>
   )
 }
