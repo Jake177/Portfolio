@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T04:48:19.285Z",
+  "title": "Design System: James Ling",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0074 80.72)",
+          "oklch(26.43% 0.0074 80.72)",
+          "oklch(37.86% 0.0074 80.72)",
+          "oklch(49.29% 0.0074 80.72)",
+          "oklch(60.71% 0.0074 80.72)",
+          "oklch(72.14% 0.0074 80.72)",
+          "oklch(83.57% 0.0074 80.72)",
+          "oklch(95.00% 0.0074 80.72)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0015 17.25)",
+          "oklch(26.43% 0.0015 17.25)",
+          "oklch(37.86% 0.0015 17.25)",
+          "oklch(49.29% 0.0015 17.25)",
+          "oklch(60.71% 0.0015 17.25)",
+          "oklch(72.14% 0.0015 17.25)",
+          "oklch(83.57% 0.0015 17.25)",
+          "oklch(95.00% 0.0015 17.25)"
+        ]
+      },
+      "pink": {
+        "role": "primary",
+        "displayName": "Experiment Pink",
+        "tonalRamp": [
+          "oklch(15.00% 0.1353 5.06)",
+          "oklch(26.43% 0.1353 5.06)",
+          "oklch(37.86% 0.1353 5.06)",
+          "oklch(49.29% 0.1353 5.06)",
+          "oklch(60.71% 0.1353 5.06)",
+          "oklch(72.14% 0.1353 5.06)",
+          "oklch(83.57% 0.1353 5.06)",
+          "oklch(95.00% 0.1353 5.06)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.0107 81.79)",
+          "oklch(26.43% 0.0107 81.79)",
+          "oklch(37.86% 0.0107 81.79)",
+          "oklch(49.29% 0.0107 81.79)",
+          "oklch(60.71% 0.0107 81.79)",
+          "oklch(72.14% 0.0107 81.79)",
+          "oklch(83.57% 0.0107 81.79)",
+          "oklch(95.00% 0.0107 81.79)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0087 80.70)",
+          "oklch(26.43% 0.0087 80.70)",
+          "oklch(37.86% 0.0087 80.70)",
+          "oklch(49.29% 0.0087 80.70)",
+          "oklch(60.71% 0.0087 80.70)",
+          "oklch(72.14% 0.0087 80.70)",
+          "oklch(83.57% 0.0087 80.70)",
+          "oklch(95.00% 0.0087 80.70)"
+        ]
+      },
+      "deep-pink": {
+        "role": "primary",
+        "displayName": "Deep Pink",
+        "tonalRamp": [
+          "oklch(15.00% 0.1668 9.06)",
+          "oklch(26.43% 0.1668 9.06)",
+          "oklch(37.86% 0.1668 9.06)",
+          "oklch(49.29% 0.1668 9.06)",
+          "oklch(60.71% 0.1668 9.06)",
+          "oklch(72.14% 0.1668 9.06)",
+          "oklch(83.57% 0.1668 9.06)",
+          "oklch(95.00% 0.1668 9.06)"
+        ]
+      },
+      "chrome": {
+        "role": "neutral",
+        "displayName": "Window Chrome",
+        "tonalRamp": [
+          "oklch(15.00% 0.0083 91.48)",
+          "oklch(26.43% 0.0083 91.48)",
+          "oklch(37.86% 0.0083 91.48)",
+          "oklch(49.29% 0.0083 91.48)",
+          "oklch(60.71% 0.0083 91.48)",
+          "oklch(72.14% 0.0083 91.48)",
+          "oklch(83.57% 0.0083 91.48)",
+          "oklch(95.00% 0.0083 91.48)"
+        ]
+      },
+      "window-shadow": {
+        "role": "neutral",
+        "displayName": "Window Offset",
+        "tonalRamp": [
+          "oklch(15.00% 0.0105 81.79)",
+          "oklch(26.43% 0.0105 81.79)",
+          "oklch(37.86% 0.0105 81.79)",
+          "oklch(49.29% 0.0105 81.79)",
+          "oklch(60.71% 0.0105 81.79)",
+          "oklch(72.14% 0.0105 81.79)",
+          "oklch(83.57% 0.0105 81.79)",
+          "oklch(95.00% 0.0105 81.79)"
+        ]
+      },
+      "control-line": {
+        "role": "neutral",
+        "displayName": "Control Stroke",
+        "tonalRamp": [
+          "oklch(15.00% 0.0123 84.59)",
+          "oklch(26.43% 0.0123 84.59)",
+          "oklch(37.86% 0.0123 84.59)",
+          "oklch(49.29% 0.0123 84.59)",
+          "oklch(60.71% 0.0123 84.59)",
+          "oklch(72.14% 0.0123 84.59)",
+          "oklch(83.57% 0.0123 84.59)",
+          "oklch(95.00% 0.0123 84.59)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Opening statement; mobile size and line-height are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section introductions and final contact heading."
+      },
+      "title": {
+        "displayName": "Service title",
+        "purpose": "Open service-row titles; mobile uses 26px."
+      },
+      "body": {
+        "displayName": "Service body",
+        "purpose": "Concise service descriptions; supporting prose uses the documented smaller variants."
+      },
+      "label": {
+        "displayName": "Technical label",
+        "purpose": "Small service heading; narrower window and footer variants use IBM Plex Mono."
+      }
+    },
+    "shadows": [
+      {
+        "name": "window-offset",
+        "value": "7px 7px 0 #d6d2cb",
+        "purpose": "Existing retro window only."
+      },
+      {
+        "name": "email-offset",
+        "value": "4px 4px 0 var(--pink)",
+        "purpose": "Primary email action at rest."
+      },
+      {
+        "name": "email-offset-hover",
+        "value": "5px 5px 0 var(--pink)",
+        "purpose": "Primary email action with translate(-1px,-1px) on hover."
+      },
+      {
+        "name": "email-offset-active",
+        "value": "1px 1px 0 var(--pink)",
+        "purpose": "Primary email action with translate(3px,3px) while active."
+      }
+    ],
+    "motion": [
+      {
+        "name": "action-transition",
+        "value": "160ms",
+        "purpose": "Primary action transform and offset; removed for reduced motion."
+      },
+      {
+        "name": "link-transition",
+        "value": "180ms",
+        "purpose": "Outlined action background and social-link border color; removed for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "intermediate-max",
+        "value": "1050px"
+      },
+      {
+        "name": "stack-max",
+        "value": "760px"
+      },
+      {
+        "name": "navigation-hide-max",
+        "value": "640px"
+      },
+      {
+        "name": "narrow-max",
+        "value": "370px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary email action",
+      "kind": "button",
+      "refersTo": "email-primary",
+      "description": "Email link with the incumbent pink offset and tactile hover/active states.",
+      "html": "<a class=\"ds-email-primary\" href=\"mailto:lingjianhui177@gmail.com\">Email me <svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-email-primary { display: inline-flex; justify-content: space-between; align-items: center; gap: 44px; min-width: 198px; min-height: 54px; padding: 12px 19px; color: var(--paper, #f7f4ef); background: var(--ink, #242323); border: 1px solid var(--ink, #242323); border-radius: 0; box-shadow: 4px 4px 0 var(--pink, #f386a1); font-family: var(--font-sans, Manrope), Arial, sans-serif; font-size: 16px; text-decoration: none; white-space: nowrap; transition: transform 160ms, box-shadow 160ms; } .ds-email-primary svg { font-size: 23px; } .ds-email-primary:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--pink, #f386a1); } .ds-email-primary:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--pink, #f386a1); } .ds-email-primary:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (prefers-reduced-motion: reduce) { .ds-email-primary { transition: none; } .ds-email-primary:hover, .ds-email-primary:active { transform: none; } }"
+    },
+    {
+      "name": "Outlined email action",
+      "kind": "button",
+      "refersTo": "email-outlined",
+      "description": "Quiet monospaced email link for the header; pink background on hover.",
+      "html": "<a class=\"ds-email-outlined\" href=\"mailto:lingjianhui177@gmail.com\">Email me <svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-email-outlined { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 44px; border: 1px solid var(--ink, #242323); border-radius: 0; padding: 12px 16px; font-family: var(--font-mono, \"IBM Plex Mono\"), monospace; color: var(--ink, #242323); font-size: 12px; text-decoration: none; white-space: nowrap; transition: background 180ms; } .ds-email-outlined svg { font-size: 20px; } .ds-email-outlined:hover { background: var(--pink, #f386a1); } .ds-email-outlined:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 760px) { .ds-email-outlined { padding: 9px 12px; font-size: 11px; gap: 16px; } } @media (prefers-reduced-motion: reduce) { .ds-email-outlined { transition: none; } }"
+    },
+    {
+      "name": "Header navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Plain text navigation with a fine hover underline; hidden below 640px in the full header.",
+      "html": "<nav class=\"ds-header-nav\" aria-label=\"Main navigation\"><a href=\"#services\">Services</a><a href=\"#approach\">Approach</a></nav>",
+      "css": ".ds-header-nav { display: flex; align-items: center; gap: 40px; font-family: var(--font-sans, Manrope), Arial, sans-serif; font-size: 15px; } .ds-header-nav a { color: var(--ink, #242323); padding: 12px 0; text-decoration: none; text-decoration-color: var(--line, #c8c4bd); text-underline-offset: 6px; } .ds-header-nav a:hover { text-decoration: underline; } .ds-header-nav a:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 1050px) { .ds-header-nav { gap: 28px; } } @media (max-width: 640px) { .ds-header-nav { display: none; } }"
+    },
+    {
+      "name": "Social text link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Fine ruled external link with the native diagonal SVG arrow.",
+      "html": "<a class=\"ds-text-link\" href=\"https://github.com/Jake177\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub <svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-text-link { display: inline-flex; align-items: center; gap: 10px; min-height: 36px; padding: 6px 0; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); font-size: 15px; text-decoration: none; transition: border-color 180ms; } .ds-text-link svg { font-size: 18px; } .ds-text-link:hover { border-color: var(--ink, #242323); } .ds-text-link:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 760px) { .ds-text-link { min-height: 44px; } } @media (prefers-reduced-motion: reduce) { .ds-text-link { transition: none; } }"
+    },
+    {
+      "name": "Open service row",
+      "kind": "custom",
+      "refersTo": "service-row",
+      "description": "A title and concise description on paper, separated by a quiet rule.",
+      "html": "<div class=\"ds-service-row\"><h3>Websites &amp; web apps</h3><p>UI / UX design, full-stack development, deployment and ongoing maintenance.</p></div>",
+      "css": ".ds-service-row { padding: 28px 0 30px; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); } .ds-service-row h3 { margin: 0; font-size: clamp(25px, 2.34vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -.035em; } .ds-service-row p { margin: 12px 0 0; max-width: 58ch; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.5; color: var(--muted, #625f5a); } @media (max-width: 760px) { .ds-service-row { padding: 24px 0; } .ds-service-row h3 { font-size: 26px; } .ds-service-row p { font-size: 16px; line-height: 1.65; } }"
+    },
+    {
+      "name": "Retro particle window chrome",
+      "kind": "custom",
+      "refersTo": "retro-window",
+      "description": "Chrome-only sample of the existing window. The shipping ParticlePlayground supplies its real Canvas renderer and local SVG poster; this sample does not substitute artwork.",
+      "html": "<section class=\"ds-window\" aria-label=\"Particle window chrome sample\"><div class=\"ds-window-heading\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M12 2v20M2 12h20M5 5l14 14M5 19 19 5\"/></svg><span>A LITTLE EXPERIMENT</span><span class=\"ds-window-stripes\" aria-hidden=\"true\"></span><span>01</span></div><div class=\"ds-window-stage\"><span class=\"ds-artwork-label\">IDEAS IN MOTION</span><span class=\"ds-artwork-cross\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M12 4v16M4 12h16\"/></svg></span></div><div class=\"ds-window-footer\"><span class=\"ds-pointer-hint\">A little curiosity goes a long way.</span><button class=\"ds-motion-toggle\" type=\"button\" aria-label=\"Pause animation\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M8 4v16M16 4v16\"/></svg> Pause</button></div></section>",
+      "css": ".ds-window { border: 1px solid var(--ink, #242323); border-radius: 0; box-shadow: 7px 7px 0 #d6d2cb; color: var(--ink, #242323); font-family: var(--font-sans, Manrope), Arial, sans-serif; } .ds-window-heading { display: flex; align-items: center; gap: 10px; height: 37px; padding: 0 12px; font-family: var(--font-mono, \"IBM Plex Mono\"), monospace; font-size: 10px; letter-spacing: .6px; border-bottom: 1px solid var(--ink, #242323); background: #efede7; } .ds-window-heading > svg { font-size: 18px; } .ds-window-stripes { flex: 1; margin: 0 4px; height: 13px; background: repeating-linear-gradient(to bottom, var(--line, #c8c4bd) 0 1px, transparent 1px 3px); } .ds-window-stage { position: relative; aspect-ratio: 1.37; overflow: hidden; background: var(--pink, #f386a1); } .ds-artwork-label { position: absolute; left: 19px; bottom: 20px; font-family: var(--font-mono, \"IBM Plex Mono\"), monospace; font-size: 9px; letter-spacing: 1.4px; } .ds-artwork-cross { position: absolute; bottom: 12px; right: 17px; font-size: 27px; } .ds-window-footer { min-height: 47px; display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 6px 12px 6px 15px; border-top: 1px solid var(--ink, #242323); background: #efede7; } .ds-pointer-hint { font-size: 11px; } .ds-motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 70px; min-height: 32px; border: 1px solid #aaa69e; background: transparent; color: var(--ink, #242323); padding: 5px 8px; font-family: var(--font-mono, \"IBM Plex Mono\"), monospace; font-size: 10px; cursor: pointer; } .ds-motion-toggle svg { font-size: 14px; } .ds-motion-toggle:hover:not(:disabled) { background: var(--pink, #f386a1); border-color: var(--ink, #242323); } .ds-motion-toggle:disabled { cursor: default; color: var(--muted, #625f5a); } .ds-motion-toggle:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 760px) { .ds-window-stage { aspect-ratio: 1.17; } }"
+    },
+    {
+      "name": "Motion toggle",
+      "kind": "button",
+      "refersTo": "motion-toggle",
+      "description": "Small outlined mono control. The live component changes Pause to Play, or disables as Motion off for reduced motion.",
+      "html": "<button class=\"ds-motion-toggle\" type=\"button\" aria-label=\"Pause animation\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M8 4v16M16 4v16\"/></svg> Pause</button>",
+      "css": ".ds-motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 70px; min-height: 32px; border: 1px solid #aaa69e; background: transparent; color: var(--ink, #242323); padding: 5px 8px; font-family: var(--font-mono, \"IBM Plex Mono\"), monospace; font-size: 10px; cursor: pointer; } .ds-motion-toggle svg { font-size: 14px; } .ds-motion-toggle:hover:not(:disabled) { background: var(--pink, #f386a1); border-color: var(--ink, #242323); } .ds-motion-toggle:disabled { cursor: default; color: var(--muted, #625f5a); } .ds-motion-toggle:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Warm paper, pink experiment",
+    "overview": "The incumbent identity pairs a warm paper surface with dark ink and a concentrated pink field. Large, tightly set Manrope headings give the content confidence; IBM Plex Mono supplies a quieter technical voice in window chrome, compact labels and the footer.\n\nThe interface is open and ruled rather than enclosed in repeated cards. A real particle experiment inside a square retro window provides the playful signature. This document records the implemented visual system; the service-first homepage composition and its local review status live in the surface brief.",
+    "keyCharacteristics": [
+      "Warm paper, ink and a single pink accent family.",
+      "Large sans-serif headings with restrained monospaced details.",
+      "Fine rules, square controls and deliberate whitespace.",
+      "A live Canvas experiment with a local SVG still fallback."
+    ],
+    "rules": [
+      {
+        "name": "The Paper and Ink Rule",
+        "body": "Keep the content on paper with ink text and thin rules; use pink to punctuate the established identity and interaction.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Manrope for content and actions; reserve IBM Plex Mono for compact technical labels, window controls and footer details.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Content Rule",
+        "body": "Keep ordinary content flat; retain solid offsets on the established window and primary action.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the warm paper, ink, pink and locally served font pairing.",
+      "Do use open content, thin rules and clear type hierarchy for service and process information.",
+      "Do retain the real Canvas artwork, its pause control and the local SVG fallback.",
+      "Do provide visible keyboard focus and readable single-column mobile content.",
+      "Do keep the retro window and primary-action offsets specific to those established components."
+    ],
+    "donts": [
+      "Don't replace the incumbent palette or local fonts with a generated concept's approximate colors or type.",
+      "Don't use generated concept PNGs as substitutes for the live particle artwork.",
+      "Don't turn every content group into a raised card or spread window chrome across ordinary prose.",
+      "Don't add decorative monospaced labels where the current content hierarchy already works.",
+      "Don't make essential information or contact actions depend on animation, hover or Canvas availability."
+    ]
+  }
+}

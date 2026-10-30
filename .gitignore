@@ -17,6 +17,12 @@ next-env.d.ts
 *.local
 .superpowers/
 
+# Local design previews, diagnostics and tool sessions
+.impeccable/build/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/review/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
