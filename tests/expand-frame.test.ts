@@ -2,8 +2,10 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { expandFrame } from '../src/lib/expand-frame.ts'
 
-test('the television starts within the stage and expands to full bleed on desktop and mobile', () => {
-  for (const [width, height] of [[1440, 812], [375, 768], [320, 664]]) {
+test('the television starts square and centered, then expands to full bleed on desktop and mobile', () => {
+  for (const [width, height] of [[1440, 812], [1920, 480], [375, 768], [320, 664]]) {
+    const resting = expandFrame(width, height, 0)
+    assert.equal(resting.width, resting.height)
     let previousArea = 0
     for (const progress of [0, 0.25, 0.5, 0.75, 1]) {
       const box = expandFrame(width, height, progress)
