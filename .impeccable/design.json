@@ -134,7 +134,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Opening statement; mobile size and line-height are documented in DESIGN.md."
+        "purpose": "Opening statement inside the pink TV; container-relative 28–72px type, line-height 1.12."
       },
       "headline": {
         "displayName": "Headline",
@@ -150,7 +150,7 @@
       },
       "label": {
         "displayName": "Technical label",
-        "purpose": "Small service heading; narrower window and footer variants use IBM Plex Mono."
+        "purpose": "Window chrome and compact footer details use IBM Plex Mono."
       }
     },
     "shadows": [

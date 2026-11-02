@@ -2,43 +2,35 @@
 version: 1
 slug: "src-app-page-tsx"
 primary_target: "src/app/page.tsx"
-related_targets: ["src/app/globals.css"]
+related_targets: ["src/app/HomeExperience.tsx", "src/app/home.module.css", "src/app/globals.css"]
 ---
 
-# Homepage — service-first opening
+# Homepage — expanding pink television
 
-Mode: Persuade. Target: src/app/page.tsx and src/app/globals.css. Approved comp: .impeccable/mocks/decision/03-services.png, selected by the owner in chat on 2026-10-30.
+Mode: Experience. The owner approved the centered expanding TV, contained headline and television text treatment, and authorized consolidating the result into the only homepage and pushing directly to main on 2026-11-02.
 
-## Direction contract
+## Direction
 
-THESIS: Make the three concrete services readable in the opening viewport, with a smaller particle window supporting the personal identity.
+Preserve warm paper, ink, pink, local Manrope and IBM Plex Mono, thin rules, native SVG icons, square window chrome and the actual Canvas sculpture. The earlier service-first concept C remains historical evidence; the owner's subsequent centered-TV instructions supersede its opening layout.
 
-OWN-WORLD: Preserve the existing paper, ink, pink, Manrope, IBM Plex Mono, thin rules, native SVG icons and retro window. Retain the actual particle implementation and reduced-motion fallback. The generated image's near-white tint does not replace the owner's pinned palette.
+The first viewport centers a wide television, resting at 70% desktop width (maximum 1120px), with 18px side margins on mobile. The unchanged business headline sits completely inside the pink screen and scales to its available width. It briefly comes into focus, keeps a faint static scanline mask and loses focus and opacity while lifting during scroll expansion. Background particles remain quieter behind readable text. The TV expands from its center to full bleed below the persistent navigation, holds briefly, and releases into ordinary scrolling. Reverse scroll restores the opening. Header anchors and a keyboard skip link bypass it.
 
-STORY: Understand the business value, recognize the relevant service, see the architect's identity and certification, and email about a project or ongoing collaboration.
+Services, the three-step process, How I think and the footer follow. Service titles and descriptions pair horizontally on desktop and stack on mobile. How I think retains role, Melbourne location, AWS certification and social links alongside the exact approved quote. Keep Jake177 branding, the header email action and the correct contact address. Removed greeting, audience subtitle, company branding, private project links and duplicate contact sections stay removed.
 
-FIRST VIEWPORT: Business headline above an asymmetric service/art spread. Three open service rows on the left; retro particle window aligned with them on the right. On 2026-11-02 the owner moved identity, certification and social links into How I think. Retain the Jake177 wordmark and header email action; the audience subtitle and duplicate contact sections stay removed. On mobile, stack each section in DOM order.
+## Motion and runtime
 
-FORM: Service-first opening, grounded structural candidate 2; seed 8f05f1d7. Keep the comp's short service copy. Continue with the existing process, exact personal quote and footer; the comp's copyright belongs at the actual page end. The owner moved profile details into How I think and unified the shared type roles on 2026-11-02.
+Later content reveals from blur on every viewport entry from either direction, resetting after leaving the reading viewport. Desktop blur is 14px, mobile 9px, entrance 1100ms and exit 240ms, with bounded sibling delays. Content stays stable while being read; keyboard focus reveals pending content immediately and preserves it until focus leaves.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+Use passive scrolling, requestAnimationFrame, IntersectionObserver and scoped CSS with no new package, plugin or per-frame React state. The Canvas stays stage-sized while the camera and rectangular crop change, with its existing 30fps cap, pause control and offscreen/hidden suspension. Reduced motion removes sticky expansion, blur, texture and title choreography; short windows use a static TV. Default HTML/CSS keeps all copy visible without JavaScript and retains the local SVG fallback.
 
-## Implemented locally — 2026-10-30
+Reference behavior was inspected in Edge at https://reactbits.dev/animations/scroll-expand and https://reactbits.dev/animations/fade-content. Official ScrollExpand uses React/CSS, while official FadeContent uses GSAP. This implementation uses the native focus/opacity interpretation, not the GSAP Mist component.
 
-The service-first opening uses a 1.625:1 service/art ratio and a 64px gutter, reducing to 40px at 1050px. The window aligns with the service list without a negative offset. At 760px and below, the artwork follows the services and later sections stack. How I think pairs a left heading/profile group with the original quote on the right. Shared type roles unify body copy, service/process titles and section headings. The owner's later refinements supersede these regions of the original C concept.
+## Consolidation and publishing
 
-The continuation preserves the three-step process, the exact approved philosophy quote and Jake177 footer. The owner's later browser comment removes the entire final contact section; the header remains the email entry point. The current Canvas interaction and existing local SVG poster remain. Generated concept PNGs are development references; no new raster was added to the shipping interface.
+The shipping route is `/` (production `/Portfolio/`). The independent preview route and metadata have been removed. HomeExperience owns scroll behavior and header/hero; server-rendered page content remains in page.tsx and layout/motion styles in home.module.css. Retain the established main, services, approach and philosophy-title anchors. The retired ScrollMotion component and its obsolete rules are removed. No generated concept raster is shipped.
 
-The actual palette, local typography, spacing, square controls, thin rules and signature window are documented in root DESIGN.md and .impeccable/design.json. The approved comp remains 03-services.png; the owner's selection does not approve A or B.
+The owner authorized a direct main commit and the existing GitHub Pages deployment, without a PR. Local checks and deployed behavior must be verified for this consolidated route before reporting success.
 
-## Scroll-motion preview
+## Existing tool limitation
 
-The owner chose option 3 (stronger experimental motion) after discussing the plan. Focal moment: the real particle sculpture turns/contracts in response to scroll, with a restrained window tilt. Continuity: reversible service divider and three-step process-rail progress. Closing feedback: the pink quote underline fills by the page end. Budget: passive listeners, one batched frame for reading progress, the existing visibility-bound 30fps particle loop, smaller mobile tilt, no new dependency. Reduced motion and no-JavaScript content stay static and complete. On 2026-11-02 the owner authorized pushing the current updates to main and the existing Pages deployment. The later expanding-TV proposal remains separate at /motion-preview/.
-
-## Verification and remaining workflow item
-
-Local lint, type checking, unit tests and static export passed. Browser navigation/contact and particle controls passed. Reduced-motion static fallback was verified and the browser preference was restored afterward. Overflow checks passed at 320px, 761px and 1050px.
-
-Independent review used valid current captures: .impeccable/review/hero-repro.png (1536 × 1024), desktop.png (1440px CSS full page), mobile.png (390px CSS full page), and user-1216.png (1216px CSS width, DPR 1.5). The review found no material UI defect; its visual finding is recorded in .impeccable/review/finish-review-summary.json.
-
-The review's overall disposition remains **fix** solely for automatic workflow persistence. Impeccable's Windows engine cannot resolve its font-ranking browser despite installed, working Playwright and compatible cached browsers. .impeccable/build/state.json remains at **spec: open**, with subsequent phases pending. No state was forced, advanced or represented as passed. This known tooling item remains open; screenshot judgment is independent evidence, not automatic gate completion.
+The earlier independent review found no material UI defect. Impeccable's Windows engine could not resolve its automatic font-ranking browser; its stored build state remains spec: open. No state was forced or represented as passed. This local tooling limitation is separate from runnable lint, type checks, unit tests, static builds and browser verification.

@@ -3,7 +3,7 @@
 A personal website for James Ling, an independent IT Solutions Architect in Melbourne, Australia.
 The English homepage covers Lark / Feishu automation and CRM integration, website and web app design, full-stack development, deployment and operations, iOS app development, consulting through ongoing maintenance, and the AWS Certified Solutions Architect – Associate qualification. Both project work and ongoing collaboration are supported through the existing email contact.
 
-The service-first homepage opens with a dominant business headline and three concise service rows beside the real particle window. After the process section, How I think pairs the role, Melbourne location, AWS certification and social links with the approved personal statement. Shared type roles keep service/process headings and body copy consistent. The email action remains in the header, and the page ends with the Jake177 footer. On mobile, each section stacks in reading order.
+The homepage opens with a wide pink television containing the business headline and real particle artwork. Native scrolling expands it to full bleed while the headline loses focus and fades out. Service, process and philosophy content follows, with repeatable content reveals in both scroll directions. How I think pairs the role, Melbourne location, AWS certification and social links with the approved personal statement. The email action remains in the header, and the page ends with the Jake177 footer. On mobile, each section stacks in reading order.
 
 The existing warm paper and pink identity, local Manrope and IBM Plex Mono, thin rules and retro window remain. No client projects, case studies, or private iOS project links are displayed.
 
@@ -44,15 +44,17 @@ For root-domain hosting, leave `NEXT_PUBLIC_BASE_PATH` unset. If the public URL 
 
 - Identity and contact links: `src/data/profile.ts`
 - Homepage copy and layout: `src/app/page.tsx`
+- Scroll expansion, repeatable reveals and header: `src/app/HomeExperience.tsx`
+- Homepage composition and motion styles: `src/app/home.module.css`
 - Colors, typography and responsive styles: `src/app/globals.css`
 - Particle animation and controls: `src/components/ParticlePlayground.tsx`
 - Deterministic particle geometry: `src/lib/particles.ts`
 
 The artwork supports pause/resume, respects changes to reduced-motion preferences, suspends animation offscreen and in hidden tabs, and lowers its particle count on touch devices. A local SVG poster remains available without JavaScript or Canvas. Introductory text and contact links are included in the static HTML.
 
-The local scroll-motion preview adds reversible particle rotation/contraction and a small window tilt, sequential pink process rails, drawing service dividers and a closing quote underline. It uses passive scroll listeners and animation frames without a new dependency or per-frame React state. Pausing the artwork freezes its scroll response too. Reduced motion restores the static presentation; without JavaScript, all copy, rules and the quote underline remain visible. The header is the current email entry point; the duplicated lower contact sections have been removed.
+The resting TV is 70% of the desktop stage width (maximum 1120px), with the headline entirely inside its pink screen. The title briefly comes into focus, retains a faint static scanline texture and fades with scroll. Content reveals use 14px blur on desktop and 9px on mobile, with a 1100ms entrance; leaving the reading viewport resets them for entry from either direction. Focus keeps interactive content visible. These effects use native scrolling, requestAnimationFrame, IntersectionObserver and scoped CSS, with no added dependency or per-frame React state. The design references React Bits Scroll Expand and Fade Content; the original GSAP Fade Content package is not installed.
 
-An independent proposal at `/motion-preview/` studies a pink TV expanding across the viewport, followed by one-time content fades inspired by React Bits. It keeps the current homepage intact and adds no package dependencies. The official Scroll Expand source uses React/CSS; the current official Fade Content source uses GSAP, which has not been installed. The proposal uses native scrolling, clipping, IntersectionObserver and CSS instead. Reduced motion and short windows receive a static composition; server-rendered content remains visible without JavaScript. The preview route is marked noindex and remains separate from the homepage when deployed.
+There is one homepage and no separate motion-preview route. Reduced motion removes expansion and reveals; short windows receive a static composition. All content remains visible without JavaScript. The header remains the email entry point; duplicated contact sections stay removed.
 
 This iteration covers the homepage and Next.js migration. Older redesign documents in `docs/superpowers/` describe the previous Vite implementation, not the current design.
 

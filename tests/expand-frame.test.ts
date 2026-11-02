@@ -11,6 +11,8 @@ test('the television starts within the stage and expands to full bleed on deskto
       assert.ok(box.left + box.width <= width + 0.001)
       assert.ok(box.top + box.height <= height + 0.001)
       assert.ok(box.width * box.height >= previousArea)
+      assert.ok(Math.abs(box.left + box.width / 2 - width / 2) < 0.001)
+      assert.ok(Math.abs(box.top + box.height / 2 - height / 2) < 0.001)
       previousArea = box.width * box.height
     }
     assert.deepEqual(expandFrame(width, height, 1), { left: 0, top: 0, width, height })

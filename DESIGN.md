@@ -14,10 +14,10 @@ colors:
 typography:
   display:
     fontFamily: "Manrope, Arial, sans-serif"
-    fontSize: "clamp(48px, 6.25vw, 96px)"
+    fontSize: "clamp(28px, 8cqw, 72px)"
     fontWeight: 600
-    lineHeight: 1
-    letterSpacing: "-0.04em"
+    lineHeight: 1.12
+    letterSpacing: "-0.035em"
   headline:
     fontFamily: "Manrope, Arial, sans-serif"
     fontSize: "clamp(32px, 3.4vw, 48px)"
@@ -129,7 +129,7 @@ Both fonts are self-hosted through `next/font/local`. The pairing combines round
 
 ### Hierarchy
 
-- **Display:** the frontmatter's display role is used for the opening statement. At widths up to the mobile breakpoint it becomes `clamp(38px, 9.4vw, 56px)` with line-height (1.06).
+- **Display:** the frontmatter's display role is used inside the opening television. Its container-relative size follows the pink screen's available width, with a 28px minimum and 72px maximum. Desktop copy spans two lines and mobile wraps within the screen.
 - **Headline:** medium-weight section headings use the headline role and balanced wrapping.
 - **Title:** service and process titles share the title role and weight (600); mobile uses (24px).
 - **Body:** service descriptions, process copy, section supporting prose and profile metadata share the body role and line-height (1.65). Service/process paragraphs have a maximum measure of (58ch). The role uses weight (600), while location and certification use the muted color at the same size.
@@ -144,7 +144,7 @@ The shared shell is centered with a maximum width of (1600px) and fluid side pad
 
 Open sections are separated by one-pixel ink rules. Repeated service and process entries use the quieter rule color. Major section padding is (64px) vertically on desktop and (48px) on mobile. Existing two-column section introductions and three-column process rows collapse into a single reading column at the mobile breakpoint. The homepage's specific opening proportions and content order are recorded in `.impeccable/surfaces/src-app-page-tsx.md`, not imposed on future screens.
 
-The shared CSS roles are `--text-body`, `--text-title` and `--text-section`. How I think uses the same section-heading scale as the process section; its left column groups personal details and social links, with the unchanged quote on the right. The opening window aligns with the service list without a negative vertical offset.
+The shared CSS roles are `--text-body`, `--text-title` and `--text-section`. How I think uses the same section-heading scale as the process section; its left column groups personal details and social links, with the unchanged quote on the right. The opening television is centered above the service section. Service rows pair their title and description horizontally on desktop and stack on mobile.
 
 Responsive breakpoints are (1050px), (760px), (640px) and (370px), all maximum-width queries. Navigation links hide below (640px), while the wordmark and email action remain. The email address can wrap anywhere; no essential service copy depends on hovering or opening a disclosure.
 
@@ -197,9 +197,9 @@ Email actions sit alongside or above a wrapping email address and the collaborat
 
 ## Scroll motion
 
-The owner selected the stronger experimental motion option for a local preview. Scrolling turns and gently contracts the existing particle sculpture while tilting its window by a small amount; mobile reduces the frame tilt. The artwork's Pause control freezes both time and scroll response.
+The opening TV rests at 70% desktop width, capped at 1120px, and leaves 18px side margins on mobile. Its business headline sits completely inside the screen, briefly focuses from blur and retains a faint static scanline mask without repeated flicker. Scrolling expands the TV from its center to full bleed below the sticky header. The title lifts, loses focus and fades; reverse scroll restores it. A short hold releases into normal page content.
 
-Motion follows a single reading sequence: service divider lines extend, the three process rails fill in order, and the pink underline under the approved quote completes at the page end. Reversing scroll reverses the sequence. Text stays readable throughout; default HTML and CSS present the full content without JavaScript. Reduced motion removes the enhanced sequence, keeps the static underline/rules and shows the existing SVG artwork fallback. Scroll callbacks are passive and batched into animation frames; the particle loop retains its existing 30fps limit and visibility suspension.
+Service, process and philosophy blocks repeatedly reveal from blur on entry from either direction. Leaving the reading viewport resets them; content remains stable while being read. Entrances take 1100ms with bounded sibling delays, exits 240ms; blur is 14px on desktop and 9px on mobile. Keyboard focus immediately reveals pending interactive content and keeps it visible. Reduced motion removes expansion, blur, texture and entrance choreography; short windows use a static TV. Default HTML and CSS keep all copy visible without JavaScript. Passive scroll callbacks update one batched animation frame without React state, and the Canvas loop retains its 30fps cap and visibility suspension. No additional animation dependency is installed.
 
 ## Do's and Don'ts
 

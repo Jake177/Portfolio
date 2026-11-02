@@ -2,15 +2,15 @@
 
 import { useLayoutEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
-import ParticlePlayground from '../../components/ParticlePlayground'
-import type { ParticleViewport } from '../../components/ParticlePlayground'
-import Icon from '../../components/Icon'
-import { profile } from '../../data/profile'
-import { expandFrame } from '../../lib/expand-frame'
-import { scrollProgress } from '../../lib/scroll-motion'
-import styles from './motion-preview.module.css'
+import ParticlePlayground from '../components/ParticlePlayground'
+import type { ParticleViewport } from '../components/ParticlePlayground'
+import Icon from '../components/Icon'
+import { profile } from '../data/profile'
+import { expandFrame } from '../lib/expand-frame'
+import { scrollProgress } from '../lib/scroll-motion'
+import styles from './home.module.css'
 
-export default function ScrollExpandPreview({ children }: { children: ReactNode }) {
+export default function HomeExperience({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLElement>(null)
@@ -50,7 +50,7 @@ export default function ScrollExpandPreview({ children }: { children: ReactNode 
       viewportRef.current = {
         x: (rect.left + rect.width / 2) / width,
         y: (rect.top + 37 + screenHeight / 2) / height,
-        scale: Math.min(rect.width, screenHeight) / Math.min(width, height),
+        scale: Math.min(rect.width, screenHeight) / Math.min(width, height) * (1.35 - current * 0.35),
       }
     }
 
@@ -95,7 +95,7 @@ export default function ScrollExpandPreview({ children }: { children: ReactNode 
       height = stage.clientHeight
       if (!width || !height) return
       start = track.getBoundingClientRect().top + window.scrollY - header.clientHeight
-      end = start + height * 0.85
+      end = start + height * 1.2
       current = target = scrollProgress(window.scrollY, start, end)
       apply()
     }
@@ -109,16 +109,15 @@ export default function ScrollExpandPreview({ children }: { children: ReactNode 
       }
       observer = new IntersectionObserver(entries => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute('data-visible', 'true')
-            observer?.unobserve(entry.target)
-          }
+          const focused = entry.target.matches(':focus-within')
+          entry.target.setAttribute('data-visible', String(entry.isIntersecting || focused))
         }
-      }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' })
+      }, { threshold: 0, rootMargin: `-${header.clientHeight + 24}px 0px -7% 0px` })
       fades.forEach(element => {
-        const visible = element.getBoundingClientRect().top < window.innerHeight * 0.9
+        const bounds = element.getBoundingClientRect()
+        const visible = bounds.top < window.innerHeight * 0.93 && bounds.bottom > header.clientHeight + 24
         element.setAttribute('data-visible', String(visible))
-        if (!visible) observer?.observe(element)
+        observer?.observe(element)
       })
       root.setAttribute('data-fade-ready', 'true')
     }
@@ -128,54 +127,65 @@ export default function ScrollExpandPreview({ children }: { children: ReactNode 
       if (element) {
         element.style.transitionDuration = '0ms'
         element.setAttribute('data-visible', 'true')
-        observer?.unobserve(element)
       }
     }
+    const releaseFocused = (event: FocusEvent) => {
+      if (!(event.target instanceof HTMLElement)) return
+      const element = event.target.closest<HTMLElement>('[data-fade]')
+      if (!element || (event.relatedTarget instanceof Node && element.contains(event.relatedTarget))) return
+      element.style.removeProperty('transition-duration')
+      const bounds = element.getBoundingClientRect()
+      element.setAttribute('data-visible', String(bounds.top < window.innerHeight * 0.93 && bounds.bottom > header.clientHeight + 24))
+    }
     const syncPreference = () => { measure(); syncFades() }
+    const onResize = () => { measure(); syncFades() }
     measure()
     syncFades()
     const resizeObserver = new ResizeObserver(measure)
     resizeObserver.observe(stage)
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', measure)
+    window.addEventListener('resize', onResize)
     document.addEventListener('visibilitychange', onScroll)
     preference.addEventListener('change', syncPreference)
     root.addEventListener('focusin', revealFocused)
+    root.addEventListener('focusout', releaseFocused)
 
     return () => {
       cancelAnimationFrame(frame)
       resizeObserver.disconnect()
       observer?.disconnect()
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', measure)
+      window.removeEventListener('resize', onResize)
       document.removeEventListener('visibilitychange', onScroll)
       preference.removeEventListener('change', syncPreference)
       root.removeEventListener('focusin', revealFocused)
+      root.removeEventListener('focusout', releaseFocused)
       root.removeAttribute('data-expand-ready')
       root.removeAttribute('data-fade-ready')
     }
   }, [])
 
   return (
-    <div ref={rootRef} className={styles.preview}>
-      <a className="skip-link" href="#preview-services">Skip introduction</a>
+    <div ref={rootRef} className={styles.home}>
+      <a className="skip-link" href="#services">Skip introduction</a>
       <div ref={headerRef} className={styles.header}>
         <header className="site-header site-shell">
-          <a className="wordmark" href="#preview-main" aria-label={`${profile.handle}, home`}>
+          <a className="wordmark" href="#main" aria-label={`${profile.handle}, home`}>
             {profile.handle}<span className="brand-star"><Icon name="asterisk" /></span>
           </a>
-          <nav className="header-nav" aria-label="Main navigation"><a href="#preview-services">Services</a><a href="#preview-approach">Approach</a></nav>
+          <nav className="header-nav" aria-label="Main navigation"><a href="#services">Services</a><a href="#approach">Approach</a></nav>
           <a className="header-contact" href={`mailto:${profile.email}`}>Email me <Icon name="arrow" /></a>
         </header>
       </div>
-      <main id="preview-main">
-        <section ref={trackRef} className={styles.track} aria-labelledby="preview-title">
+      <main id="main">
+        <section ref={trackRef} className={styles.track} aria-labelledby="hero-title">
           <div ref={stageRef} className={styles.stage}>
-            <div className={styles.introCopy}>
-              <h1 id="preview-title">I solve business problems<br />with software.</h1>
-              <p>Automation. Web. iOS.</p>
+            <div ref={artRef} className={styles.art}>
+              <ParticlePlayground viewportRef={viewportRef} />
+              <div className={styles.introCopy}>
+                <h1 id="hero-title"><span className={styles.screenText}>I solve business problems<br />with software.</span></h1>
+              </div>
             </div>
-            <div ref={artRef} className={styles.art}><ParticlePlayground viewportRef={viewportRef} /></div>
             <p className={styles.scrollHint}>Scroll to expand <Icon name="arrow-down" /></p>
           </div>
         </section>
