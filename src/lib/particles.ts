@@ -16,16 +16,17 @@ export function createParticles(count: number): Particle[] {
   }))
 }
 
-export function projectParticle(particle: Particle, time: number) {
+export function projectParticle(particle: Particle, time: number, scroll = 0) {
   const { u, v, depth } = particle
   const ring = 0.61 + Math.sin(u * 3 + time * 0.24) * 0.09
-  const tube = (0.31 + Math.cos(u * 4 - time * 0.18) * 0.045) * depth
+  const tube = (0.31 + Math.cos(u * 4 - time * 0.18) * 0.045) * depth * (1 - Math.sin(scroll * Math.PI) * 0.16)
   const x = (ring + tube * Math.cos(v)) * Math.cos(u)
   const y = (ring + tube * Math.cos(v)) * Math.sin(u)
   const z = tube * Math.sin(v) + Math.sin(u * 2 + time * 0.2) * 0.13
-  const tiltedY = y * Math.cos(0.72) - z * Math.sin(0.72)
-  const tiltedZ = y * Math.sin(0.72) + z * Math.cos(0.72)
-  const rotation = 0.35 + time * 0.09
+  const tilt = 0.72 + scroll * 0.55
+  const tiltedY = y * Math.cos(tilt) - z * Math.sin(tilt)
+  const tiltedZ = y * Math.sin(tilt) + z * Math.cos(tilt)
+  const rotation = 0.35 + time * 0.09 + scroll * Math.PI * 1.5
   const turnedX = x * Math.cos(rotation) + tiltedZ * Math.sin(rotation)
   const turnedZ = -x * Math.sin(rotation) + tiltedZ * Math.cos(rotation)
 

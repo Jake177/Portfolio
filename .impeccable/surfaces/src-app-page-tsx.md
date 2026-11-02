@@ -17,19 +17,23 @@ OWN-WORLD: Preserve the existing paper, ink, pink, Manrope, IBM Plex Mono, thin 
 
 STORY: Understand the business value, recognize the relevant service, see the architect's identity and certification, and email about a project or ongoing collaboration.
 
-FIRST VIEWPORT: Business headline above an asymmetric service/identity spread. Three open service rows on the left; compact retro window and identity/certification/social links on the right. The owner subsequently removed the audience subtitle and duplicate opening email strip, and changed the header wordmark to Jake177. Retain the header email action and final contact section. On mobile, stack headline, services and profile/art in DOM order.
+FIRST VIEWPORT: Business headline above an asymmetric service/art spread. Three open service rows on the left; retro particle window aligned with them on the right. On 2026-11-02 the owner moved identity, certification and social links into How I think. Retain the Jake177 wordmark and header email action; the audience subtitle and duplicate contact sections stay removed. On mobile, stack each section in DOM order.
 
-FORM: Service-first opening, grounded structural candidate 2; seed 8f05f1d7. Keep the comp's short service copy. Continue with the existing process, exact personal quote and final contact/footer; the comp's copyright belongs at the actual page end.
+FORM: Service-first opening, grounded structural candidate 2; seed 8f05f1d7. Keep the comp's short service copy. Continue with the existing process, exact personal quote and footer; the comp's copyright belongs at the actual page end. The owner moved profile details into How I think and unified the shared type roles on 2026-11-02.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Implemented locally — 2026-10-30
 
-The service-first opening is implemented in the existing visual world. The desktop opening grid uses a 1.625:1 service/profile ratio and a 64px gutter, reducing to 40px at 1050px. The compact profile column is raised beside the headline's second line. At 760px and below, it returns to normal flow after the services; later sections also stack. These are homepage-specific composition decisions, not global component rules. The owner's browser comment on 2026-10-30 removes the opening email strip as redundant with the final contact section; this refinement supersedes that region in the approved concept image.
+The service-first opening uses a 1.625:1 service/art ratio and a 64px gutter, reducing to 40px at 1050px. The window aligns with the service list without a negative offset. At 760px and below, the artwork follows the services and later sections stack. How I think pairs a left heading/profile group with the original quote on the right. Shared type roles unify body copy, service/process titles and section headings. The owner's later refinements supersede these regions of the original C concept.
 
-The continuation preserves the three-step process, the exact approved philosophy quote, final email contact and Jake177 footer. The current Canvas interaction and existing local SVG poster remain. Generated concept PNGs are development references; no new raster was added to the shipping interface.
+The continuation preserves the three-step process, the exact approved philosophy quote and Jake177 footer. The owner's later browser comment removes the entire final contact section; the header remains the email entry point. The current Canvas interaction and existing local SVG poster remain. Generated concept PNGs are development references; no new raster was added to the shipping interface.
 
 The actual palette, local typography, spacing, square controls, thin rules and signature window are documented in root DESIGN.md and .impeccable/design.json. The approved comp remains 03-services.png; the owner's selection does not approve A or B.
+
+## Scroll-motion preview
+
+The owner chose option 3 (stronger experimental motion) after discussing the plan. Focal moment: the real particle sculpture turns/contracts in response to scroll, with a restrained window tilt. Continuity: reversible service divider and three-step process-rail progress. Closing feedback: the pink quote underline fills by the page end. Budget: passive listeners, one batched frame for reading progress, the existing visibility-bound 30fps particle loop, smaller mobile tilt, no new dependency. Reduced motion and no-JavaScript content stay static and complete. On 2026-11-02 the owner authorized pushing the current updates to main and the existing Pages deployment. The later expanding-TV proposal remains separate at /motion-preview/.
 
 ## Verification and remaining workflow item
 

@@ -20,21 +20,21 @@ typography:
     letterSpacing: "-0.04em"
   headline:
     fontFamily: "Manrope, Arial, sans-serif"
-    fontSize: "clamp(32px, 3.7vw, 56px)"
+    fontSize: "clamp(32px, 3.4vw, 48px)"
     fontWeight: 500
-    lineHeight: 1.12
-    letterSpacing: "-0.04em"
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
   title:
     fontFamily: "Manrope, Arial, sans-serif"
-    fontSize: "clamp(25px, 2.34vw, 36px)"
+    fontSize: "clamp(22px, 2.2vw, 32px)"
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.035em"
+    letterSpacing: "-0.03em"
   body:
     fontFamily: "Manrope, Arial, sans-serif"
-    fontSize: "clamp(16px, 1.3vw, 20px)"
+    fontSize: "clamp(16px, 1.2vw, 18px)"
     fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 1.65
   label:
     fontFamily: "IBM Plex Mono, monospace"
     fontSize: "12px"
@@ -131,10 +131,10 @@ Both fonts are self-hosted through `next/font/local`. The pairing combines round
 
 - **Display:** the frontmatter's display role is used for the opening statement. At widths up to the mobile breakpoint it becomes `clamp(38px, 9.4vw, 56px)` with line-height (1.06).
 - **Headline:** medium-weight section headings use the headline role and balanced wrapping.
-- **Title:** service titles use the title role; mobile uses (26px). Process titles use a quieter (20px), weight (500).
-- **Body:** service descriptions use the body role and a maximum measure of (58ch). Mobile descriptions use (16px) with line-height (1.65). Supporting section prose uses (17px) with line-height (1.7), reducing to (15px) on mobile.
+- **Title:** service and process titles share the title role and weight (600); mobile uses (24px).
+- **Body:** service descriptions, process copy, section supporting prose and profile metadata share the body role and line-height (1.65). Service/process paragraphs have a maximum measure of (58ch). The role uses weight (600), while location and certification use the muted color at the same size.
 - **Label:** the small service heading uses the label role in uppercase. Window chrome uses smaller mono details (10px); footer details are (10px), reducing to (9px) on mobile.
-- **Quote:** the personal statement uses `clamp(28px, 3vw, 44px)`, weight (500), line-height (1.35) and letter-spacing (-0.03em). Its final phrase receives a pink underline.
+- **Quote:** the personal statement uses `clamp(28px, 3vw, 44px)`, weight (500), line-height (1.45) and letter-spacing (-0.025em). Its final phrase receives a pink underline.
 
 **The Two Voices Rule.** Use Manrope for content and actions; reserve IBM Plex Mono for compact technical labels, window controls and footer details.
 
@@ -143,6 +143,8 @@ Both fonts are self-hosted through `next/font/local`. The pairing combines round
 The shared shell is centered with a maximum width of (1600px) and fluid side padding of `clamp(24px, 4vw, 60px)`. The intermediate breakpoint uses (32px) side padding; mobile uses (24px), reducing to (18px) below the narrowest breakpoint. Text blocks retain comfortable measures rather than stretching across every available column.
 
 Open sections are separated by one-pixel ink rules. Repeated service and process entries use the quieter rule color. Major section padding is (64px) vertically on desktop and (48px) on mobile. Existing two-column section introductions and three-column process rows collapse into a single reading column at the mobile breakpoint. The homepage's specific opening proportions and content order are recorded in `.impeccable/surfaces/src-app-page-tsx.md`, not imposed on future screens.
+
+The shared CSS roles are `--text-body`, `--text-title` and `--text-section`. How I think uses the same section-heading scale as the process section; its left column groups personal details and social links, with the unchanged quote on the right. The opening window aligns with the service list without a negative vertical offset.
 
 Responsive breakpoints are (1050px), (760px), (640px) and (370px), all maximum-width queries. Navigation links hide below (640px), while the wordmark and email action remain. The email address can wrap anywhere; no essential service copy depends on hovering or opening a disclosure.
 
@@ -192,6 +194,12 @@ The local `public/particle-poster.svg` remains visible before Canvas is ready, w
 ### Contact regions and footer
 
 Email actions sit alongside or above a wrapping email address and the collaboration note. Contact strips use ink rules. The footer returns to small mono text, the Jake177 handle and the existing pink asterisk.
+
+## Scroll motion
+
+The owner selected the stronger experimental motion option for a local preview. Scrolling turns and gently contracts the existing particle sculpture while tilting its window by a small amount; mobile reduces the frame tilt. The artwork's Pause control freezes both time and scroll response.
+
+Motion follows a single reading sequence: service divider lines extend, the three process rails fill in order, and the pink underline under the approved quote completes at the page end. Reversing scroll reverses the sequence. Text stays readable throughout; default HTML and CSS present the full content without JavaScript. Reduced motion removes the enhanced sequence, keeps the static underline/rules and shows the existing SVG artwork fallback. Scroll callbacks are passive and batched into animation frames; the particle loop retains its existing 30fps limit and visibility suspension.
 
 ## Do's and Don'ts
 

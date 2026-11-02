@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import type { RefObject } from 'react'
 import Icon from './Icon'
 import { createParticles, particleColor, projectParticle } from '../lib/particles'
+import { scrollProgress } from '../lib/scroll-motion'
 
 const motionQuery = '(prefers-reduced-motion: reduce)'
 const subscribeToMotion = (onChange: () => void) => {
@@ -13,7 +15,9 @@ const subscribeToMotion = (onChange: () => void) => {
 const getReducedMotion = () => window.matchMedia(motionQuery).matches
 const getServerMotion = () => true
 
-export default function ParticlePlayground() {
+export type ParticleViewport = { x: number; y: number; scale: number }
+
+export default function ParticlePlayground({ viewportRef }: { viewportRef?: RefObject<ParticleViewport> }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pauseRef = useRef(false)
   const [paused, setPaused] = useState(false)
@@ -30,24 +34,40 @@ export default function ParticlePlayground() {
     const offsets = particles.map(() => ({ x: 0, y: 0 }))
     const palette = Array.from({ length: 32 }, (_, i) => particleColor((i / 31) * 1.7 - 0.85))
     const pointer = { x: -1000, y: -1000 }
+    const windowFrame = canvas.closest<HTMLElement>('.playground')
     let width = 0
     let height = 0
     let frame = 0
     let time = 0
     let lastFrame = 0
     let inView = false
+    let scrollStart = 0
+    let scrollEnd = 1
+    let scrollTarget = 0
+    let scrollPosition = 0
+
+    const readScroll = () => {
+      if (!pauseRef.current && inView && !document.hidden) {
+        scrollTarget = scrollProgress(window.scrollY, scrollStart, scrollEnd)
+      }
+    }
 
     const draw = (delta = 0) => {
       if (!width || !height) return
       time += delta
+      if (!pauseRef.current) scrollPosition += (scrollTarget - scrollPosition) * 0.12
+      windowFrame?.style.setProperty('--art-scroll', scrollPosition.toFixed(3))
       context.fillStyle = '#f386a1'
       context.fillRect(0, 0, width, height)
-      const scale = Math.min(width, height) * 0.5
+      const viewport = viewportRef?.current
+      const scale = Math.min(width, height) * 0.5 * (1 - scrollPosition * 0.08) * (viewport?.scale ?? 1)
+      const centerX = width * (viewport?.x ?? 0.5)
+      const centerY = height * (viewport?.y ?? 0.5)
 
       particles.forEach((particle, index) => {
-        const point = projectParticle(particle, time)
-        let x = width / 2 + point.x * scale
-        let y = height / 2 + point.y * scale
+        const point = projectParticle(particle, time, scrollPosition)
+        let x = centerX + point.x * scale
+        let y = centerY + point.y * scale
         const dx = x - pointer.x
         const dy = y - pointer.y
         const distance = Math.hypot(dx, dy)
@@ -79,14 +99,18 @@ export default function ParticlePlayground() {
       cancelAnimationFrame(frame)
       lastFrame = 0
       if (!pauseRef.current && !document.hidden && inView) {
+        readScroll()
         frame = requestAnimationFrame(animate)
       }
     }
 
     const resize = () => {
       const bounds = canvas.getBoundingClientRect()
-      width = bounds.width
-      height = bounds.height
+      width = canvas.clientWidth
+      height = canvas.clientHeight
+      scrollStart = Math.max(0, bounds.top + window.scrollY - window.innerHeight * 0.25)
+      scrollEnd = scrollStart + height + window.innerHeight * 0.55
+      readScroll()
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
       canvas.width = Math.round(width * dpr)
       canvas.height = Math.round(height * dpr)
@@ -117,6 +141,8 @@ export default function ParticlePlayground() {
     canvas.addEventListener('pointerleave', leave)
     canvas.addEventListener('playbackchange', syncPlayback)
     document.addEventListener('visibilitychange', syncPlayback)
+    window.addEventListener('scroll', readScroll, { passive: true })
+    window.addEventListener('resize', resize)
 
     return () => {
       cancelAnimationFrame(frame)
@@ -126,9 +152,12 @@ export default function ParticlePlayground() {
       canvas.removeEventListener('pointerleave', leave)
       canvas.removeEventListener('playbackchange', syncPlayback)
       document.removeEventListener('visibilitychange', syncPlayback)
+      window.removeEventListener('scroll', readScroll)
+      window.removeEventListener('resize', resize)
+      windowFrame?.style.removeProperty('--art-scroll')
       delete canvas.dataset.ready
     }
-  }, [reducedMotion])
+  }, [reducedMotion, viewportRef])
 
   const togglePlayback = () => {
     pauseRef.current = !pauseRef.current

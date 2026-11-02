@@ -138,15 +138,15 @@
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section introductions and final contact heading."
+        "purpose": "Section headings, including collaboration and How I think, share --text-section."
       },
       "title": {
         "displayName": "Service title",
-        "purpose": "Open service-row titles; mobile uses 26px."
+        "purpose": "Service and process titles share --text-title; mobile uses 24px."
       },
       "body": {
         "displayName": "Service body",
-        "purpose": "Concise service descriptions; supporting prose uses the documented smaller variants."
+        "purpose": "Service/process copy and profile metadata share --text-body and 1.65 line-height; paragraphs use a 58ch maximum measure."
       },
       "label": {
         "displayName": "Technical label",
@@ -237,7 +237,7 @@
       "refersTo": "text-link",
       "description": "Fine ruled external link with the native diagonal SVG arrow.",
       "html": "<a class=\"ds-text-link\" href=\"https://github.com/Jake177\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub <svg viewBox=\"0 0 24 24\" width=\"1em\" height=\"1em\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
-      "css": ".ds-text-link { display: inline-flex; align-items: center; gap: 10px; min-height: 36px; padding: 6px 0; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); font-size: 15px; text-decoration: none; transition: border-color 180ms; } .ds-text-link svg { font-size: 18px; } .ds-text-link:hover { border-color: var(--ink, #242323); } .ds-text-link:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 760px) { .ds-text-link { min-height: 44px; } } @media (prefers-reduced-motion: reduce) { .ds-text-link { transition: none; } }"
+      "css": ".ds-text-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 0; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); font-size: var(--text-body, clamp(16px, 1.2vw, 18px)); text-decoration: none; transition: border-color 180ms; } .ds-text-link svg { font-size: 18px; } .ds-text-link:hover { border-color: var(--ink, #242323); } .ds-text-link:focus-visible { outline: 2px solid var(--ink, #242323); outline-offset: 5px; } @media (max-width: 760px) { .ds-text-link { min-height: 44px; } } @media (prefers-reduced-motion: reduce) { .ds-text-link { transition: none; } }"
     },
     {
       "name": "Open service row",
@@ -245,7 +245,7 @@
       "refersTo": "service-row",
       "description": "A title and concise description on paper, separated by a quiet rule.",
       "html": "<div class=\"ds-service-row\"><h3>Websites &amp; web apps</h3><p>UI / UX design, full-stack development, deployment and ongoing maintenance.</p></div>",
-      "css": ".ds-service-row { padding: 28px 0 30px; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); } .ds-service-row h3 { margin: 0; font-size: clamp(25px, 2.34vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -.035em; } .ds-service-row p { margin: 12px 0 0; max-width: 58ch; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.5; color: var(--muted, #625f5a); } @media (max-width: 760px) { .ds-service-row { padding: 24px 0; } .ds-service-row h3 { font-size: 26px; } .ds-service-row p { font-size: 16px; line-height: 1.65; } }"
+      "css": ".ds-service-row { padding: 28px 0 30px; border-bottom: 1px solid var(--line, #c8c4bd); font-family: var(--font-sans, Manrope), Arial, sans-serif; color: var(--ink, #242323); } .ds-service-row h3 { margin: 0; font-size: var(--text-title, clamp(22px, 2.2vw, 32px)); font-weight: 600; line-height: 1.2; letter-spacing: -.03em; } .ds-service-row p { margin: 12px 0 0; max-width: 58ch; font-size: var(--text-body, clamp(16px, 1.2vw, 18px)); line-height: 1.65; color: var(--muted, #625f5a); } @media (max-width: 760px) { .ds-service-row { padding: 24px 0; } .ds-service-row h3 { font-size: 24px; } .ds-service-row p { font-size: 16px; line-height: 1.65; } }"
     },
     {
       "name": "Retro particle window chrome",

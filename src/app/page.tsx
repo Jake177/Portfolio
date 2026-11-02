@@ -1,4 +1,5 @@
 import ParticlePlayground from '../components/ParticlePlayground'
+import ScrollMotion from '../components/ScrollMotion'
 import Icon from '../components/Icon'
 import { profile } from '../data/profile'
 
@@ -9,6 +10,7 @@ function Arrow() {
 export default function Home() {
   return (
     <div className="site-shell">
+      <ScrollMotion />
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header">
         <a className="wordmark" href="#main" aria-label={`${profile.handle}, home`}>
@@ -46,18 +48,9 @@ export default function Home() {
               </div>
             </section>
 
-            <aside className="profile-column" aria-label="About James">
+            <div className="art-column">
               <ParticlePlayground />
-              <div className="profile-details">
-                <p className="profile-role">{profile.role}</p>
-                <p className="profile-location">{profile.location}</p>
-                <p className="certification">AWS Certified Solutions Architect – Associate</p>
-                <nav className="profile-links" aria-label="Connect with James">
-                  <a className="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a>
-                  <a className="text-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a>
-                </nav>
-              </div>
-            </aside>
+            </div>
           </div>
 
         </section>
@@ -75,21 +68,21 @@ export default function Home() {
         </section>
 
         <section className="philosophy content-section" aria-labelledby="philosophy-title">
-          <h2 id="philosophy-title">How I think.</h2>
+          <div className="philosophy-profile">
+            <h2 id="philosophy-title">How I think.</h2>
+            <div className="profile-details">
+              <p className="profile-role">{profile.role}</p>
+              <p className="profile-location">{profile.location}</p>
+              <p className="certification">AWS Certified Solutions Architect – Associate</p>
+              <nav className="profile-links" aria-label="Connect with James">
+                <a className="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a>
+                <a className="text-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a>
+              </nav>
+            </div>
+          </div>
           <blockquote>Humans are great, but we make mistakes. If something else can do the job more reliably, <span>why not use it?</span></blockquote>
         </section>
 
-        <section className="contact-section" id="contact" aria-labelledby="contact-title">
-          <div>
-            <h2 id="contact-title">What are you<br />working on<span className="pink-period">?</span></h2>
-            <p>Tell me about the idea, the process, or the thing that takes too much time.</p>
-          </div>
-          <div className="contact-details">
-            <a className="hello-button" href={`mailto:${profile.email}`}>Email me <Arrow /></a>
-            <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email}</a>
-            <p>Project work &amp; ongoing collaboration.</p>
-          </div>
-        </section>
       </main>
 
       <footer className="site-footer"><span>© {new Date().getFullYear()} {profile.handle}</span><span>A little curiosity. A lot of possibility. <span className="footer-star" aria-hidden="true"><Icon name="asterisk" /></span></span></footer>
